@@ -1,8 +1,6 @@
 package com.jan.title100.title11_20;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 16、最接近的三数之和
@@ -41,28 +39,32 @@ public class Title16 {
         int ans = s;
         int diff = Math.abs(target - s);
         for (int i = 0; i < nums.length; i++) {
-            // 跳过重复
+            // 跳过重复值
             if(i > 0 && nums[i] == nums[i-1]) {
                 continue;
             }
 
+            // 双指针
             int left = i + 1;
             int right = nums.length - 1;
             while (left < right) {
                 s = nums[i] + nums[left] + nums[right];
                 if(s > target) {
+                    // 如果出现更小差值，记录更小差值及合计值
                     if((s - target) < diff) {
                         ans = s;
                         diff = s - target;
                     }
                     right--;
                 } else if(s < target) {
+                    // 如果出现更小差值，记录更小差值及合计值
                     if((target - s) < diff) {
                         ans = s;
                         diff = target - s;
                     }
                     left++;
                 } else {
+                    // 合计值为目标值，直接返回
                     return s;
                 }
             }
