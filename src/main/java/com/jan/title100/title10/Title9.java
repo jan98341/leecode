@@ -1,4 +1,4 @@
-package com.jan.title100.title1_10;
+package com.jan.title100.title10;
 
 public class Title9 {
     public static void main(String[] args) {

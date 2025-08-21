@@ -1,4 +1,4 @@
-package com.jan.title100.title1_10;
+package com.jan.title100.title10;
 
 import java.util.ArrayList;
 import java.util.List;

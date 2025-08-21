@@ -1,4 +1,4 @@
-package com.jan.title100.title1_10;
+package com.jan.title100.title10;
 
 /**
  * 4、寻找两个正序数组的中位数

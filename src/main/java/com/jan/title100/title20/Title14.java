@@ -1,4 +1,4 @@
-package com.jan.title100.title11_20;
+package com.jan.title100.title20;
 
 /**
  * 14、最长公共前缀

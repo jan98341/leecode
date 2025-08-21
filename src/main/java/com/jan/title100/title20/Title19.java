@@ -1,4 +1,4 @@
-package com.jan.title100.title11_20;
+package com.jan.title100.title20;
 
 /**
  * 19. 删除链表的倒数第 N 个结点
