@@ -1,5 +1,7 @@
 package com.jan.title100.title20;
 
+import java.util.Stack;
+
 /**
  * 20. 有效的括号
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
@@ -34,6 +36,31 @@ package com.jan.title100.title20;
  */
 public class Title20 {
     public static void main(String[] args) {
+        System.out.println("示例1：" + isValid("()"));
+        System.out.println("示例2：" + isValid("()[]{}"));
+        System.out.println("示例3：" + isValid("(]"));
+        System.out.println("示例4：" + isValid("([])"));
+        System.out.println("示例5：" + isValid("([)]"));
+        System.out.println("示例6：" + isValid("("));
+        System.out.println("示例7：" + isValid(")"));
+    }
 
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            } else if (c == ')' || c == ']' || c == '}') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = stack.pop();
+                if((top != '(' && c == ')') || (top != '[' && c == ']') || (top != '{' && c == '}')) {
+                    return false;
+                }
+            }
+        }
+
+        return stack.empty  () ? true : false;
     }
 }
