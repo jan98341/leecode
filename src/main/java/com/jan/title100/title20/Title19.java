@@ -1,5 +1,10 @@
 package com.jan.title100.title20;
 
+import com.jan.share.ListNode;
+import com.jan.share.ListNodeUtils;
+
+import static com.jan.share.ListNodeUtils.printList;
+
 /**
  * 19. 删除链表的倒数第 N 个结点
  * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
@@ -37,25 +42,25 @@ package com.jan.title100.title20;
 public class Title19 {
     public static void main(String[] args) {
         Integer[] arr = {1, 2, 3, 4, 5};
-        ListNode head = buildListNode(arr);
+        ListNode head = ListNodeUtils.buildListNode(arr);
         printList(head);
         head = removeNthFromEnd(head, 2);
         printList(head);
 
         Integer[] arr2 = {1};
-        ListNode head2 = buildListNode(arr2);
+        ListNode head2 = ListNodeUtils.buildListNode(arr2);
         printList(head2);
         head2 = removeNthFromEnd(head2, 1);
         printList(head2);
 
         Integer[] arr3 = {1,2};
-        ListNode head3 = buildListNode(arr3);
+        ListNode head3 = ListNodeUtils.buildListNode(arr3);
         printList(head3);
         head3 = removeNthFromEnd(head3, 1);
         printList(head3);
 
         Integer[] arr4 = {1,2};
-        ListNode head4 = buildListNode(arr4);
+        ListNode head4 = ListNodeUtils.buildListNode(arr4);
         printList(head4);
         head4 = removeNthFromEnd(head4, 2);
         printList(head4);
@@ -89,49 +94,5 @@ public class Title19 {
         // 删除倒数第n个节点
         preDel.next = preDel.next.next;
         return dummy.next;
-    }
-
-    private static ListNode buildListNode(Integer[] arr) {
-        ListNode head = null;
-        ListNode current = null;
-        for (int i = 0; i < arr.length; i++) {
-            if (head == null) {
-                head = new ListNode(arr[i]);
-                current = head;
-                continue;
-            }
-
-            ListNode node = new ListNode(arr[i]);
-            current.next = node;
-            current = node;
-        }
-
-        return head;
-    }
-
-    // 打印链表的方法
-    private static void printList(ListNode node) {
-        while (node != null) {
-            System.out.print(node.val + " ");
-            node = node.next;
-        }
-        System.out.println();
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }
