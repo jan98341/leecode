@@ -29,10 +29,13 @@ import java.util.List;
  */
 public class Title25 {
     public static void main(String[] args) {
-
+//        ListNode listNode1 = ListNodeUtils.buildListNode(new Integer[]{1,2,3,4,5,6,7,8,9,10});
+//        ListNodeUtils.printList(reverseKGroup(listNode1, 3));
+        ListNode listNode2 = ListNodeUtils.buildListNode(new Integer[]{1,2,3,4,5});
+        ListNodeUtils.printList(reverseKGroup(listNode2, 1));
     }
 
-    public ListNode reverseKGroup(ListNode head, int k) {
+    public static ListNode reverseKGroup(ListNode head, int k) {
         ListNode dummyHead = new ListNode(0, head);
         ListNode pre = dummyHead;
         List<ListNode> list = getNodes(pre.next, k);
@@ -40,7 +43,7 @@ public class Title25 {
             ListNode next = list.get(k - 1).next;
 
             pre.next = list.get(k-1);
-            for(int i = k - 1; i >= 0; i--) {
+            for(int i = k - 1; i > 0; i--) {
                 list.get(i).next = list.get(i-1);
             }
             list.get(0).next = next;
@@ -52,17 +55,15 @@ public class Title25 {
         return dummyHead.next;
     }
 
-    private List<ListNode> getNodes(ListNode curr, int k) {
+    private static List<ListNode> getNodes(ListNode curr, int k) {
         List<ListNode> list = new ArrayList<>();
         for (int i = 0; i < k; i++) {
-            list.add(curr);
-            if(curr.next == null) {
+            if (curr == null) {
                 return list;
             }
-
+            list.add(curr);
             curr = curr.next;
         }
-
         return list;
     }
 }
