@@ -1,5 +1,7 @@
 package com.jan.title100.title40;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * 31. 下一个排列
  * 整数数组的一个 排列  就是将其所有成员以序列或线性顺序排列。
@@ -30,10 +32,57 @@ package com.jan.title100.title40;
  */
 public class Title31 {
     public static void main(String[] args) {
+        int[] nums1 = {1, 2, 3};
+        int[] nums2 = {3,2,1};
+        int[] nums3 = {1,1,5};
+        int[] nums4 = {1,3,2};
+        int[] nums5 = {1,2,8,9,4};
 
+        nextPermutation(nums1);
+        nextPermutation(nums2);
+        nextPermutation(nums3);
+        nextPermutation(nums4);
+        nextPermutation(nums5);
+        System.out.println(JSON.toJSONString(nums1));
+        System.out.println(JSON.toJSONString(nums2));
+        System.out.println(JSON.toJSONString(nums3));
+        System.out.println(JSON.toJSONString(nums4));
+        System.out.println(JSON.toJSONString(nums5));
     }
 
-    public void nextPermutation(int[] nums) {
+    public static void nextPermutation(int[] nums) {
+        int n = nums.length;
 
+        // 第一步：从右向左找到第一个小于右侧相邻数字的数 nums[i]
+        int i = n - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
+        }
+
+        // 如果找到了，进入第二步；否则跳过第二步，反转整个数组
+        if (i >= 0) {
+            // 第二步：从右向左找到 nums[i] 右边最小的大于 nums[i] 的数 nums[j]
+            int j = n - 1;
+            while (nums[j] <= nums[i]) {
+                j--;
+            }
+            // 交换 nums[i] 和 nums[j]
+            swap(nums, i, j);
+        }
+
+        // 第三步：反转 [i+1, n-1]（如果上面跳过第二步，此时 i = -1）
+        reverse(nums, i + 1, n - 1);
+    }
+
+    private static void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    private static void reverse(int[] nums, int left, int right) {
+        while (left < right) {
+            swap(nums, left++, right--);
+        }
     }
 }
