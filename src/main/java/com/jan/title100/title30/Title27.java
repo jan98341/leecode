@@ -1,5 +1,7 @@
 package com.jan.title100.title30;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * 27、移除元素
  * 给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素。元素的顺序可能发生改变。然后返回 nums 中与 val 不同的元素的数量。
@@ -39,4 +41,22 @@ package com.jan.title100.title30;
  * 0 <= val <= 100
  */
 public class Title27 {
+    public static void main(String[] args) {
+        int[] nums1 = new int[]{3,2,2,3};
+        System.out.println(removeElement(nums1, 3)  + "," + JSON.toJSONString(nums1));
+
+        int[] nums2 = new int[]{0,1,2,2,3,0,4,2};
+        System.out.println(removeElement(nums2, 2)  + "," + JSON.toJSONString(nums2));
+    }
+
+    public static int removeElement(int[] nums, int val) {
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[k++] = nums[i];
+            }
+        }
+
+        return k;
+    }
 }
