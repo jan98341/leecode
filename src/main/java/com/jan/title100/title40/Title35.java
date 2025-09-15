@@ -25,11 +25,37 @@ package com.jan.title100.title40;
  */
 public class Title35 {
     public static void main(String[] args) {
-
+        int[] nums1 = {1,3,5,6};
+        int[] nums2 = {};
+        System.out.println(findTarget(nums1, 5));
+        System.out.println(findTarget(nums1, 2));
+        System.out.println(findTarget(nums1, 7));
+        System.out.println(findTarget(nums2, 1));
     }
 
-    public int searchInsert(int[] nums, int target) {
+    public static int searchInsert(int[] nums, int target) {
+        int left = -1, right = nums.length;
+        while (left + 1 < right) {
+            int mid = (left + right) >>> 1;
+            if(nums[mid] < target) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
+    }
 
-        return 0;
+    private static int findTarget(int[] nums, int target) {
+        int left = -1, right = nums.length;
+        while (left + 1 < right) {
+            int mid = (left + right) >>> 1;
+            if(nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+        return right;
     }
 }
