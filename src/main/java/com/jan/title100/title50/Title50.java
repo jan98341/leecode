@@ -19,10 +19,10 @@ package com.jan.title100.title50;
  *
  * 提示：
  * -100.0 < x < 100.0
- * -231 <= n <= 231-1
+ * -2^31 <= n <= 2^31-1
  * n 是一个整数
  * 要么 x 不为零，要么 n > 0 。
- * -104 <= xn <= 104
+ * -10^4 <= xn <= 10^4
  */
 public class Title50 {
     public static void main(String[] args) {
