@@ -21,6 +21,30 @@ package com.jan.title100.title60;
  */
 public class Title55 {
     public static void main(String[] args) {
+        int[] nums1 = {2,3,1,1,4};
+        int[] nums2 = {3,2,1,0,4};
+        int[] nums3 = {1,1,0,1,1,2};
 
+        System.out.println(canJump(nums1));
+        System.out.println(canJump(nums2));
+        System.out.println(canJump(nums3));
+
+    }
+
+    public static boolean canJump(int[] nums) {
+        int length = nums.length;
+        int  maxPosition = 0, end = 0;
+        for(int i = 0; i < length - 1; i++) {
+            // 每次查找中，找出本次能够到达最远的位置
+            maxPosition = Math.max(maxPosition, i + nums[i]);
+            if(i == end) {
+                // 如果出现本次超找出最远的位置是当前最后位置，那么就无法向后跳远，则返回false
+                if(maxPosition == end) {
+                    return false;
+                }
+                end = maxPosition;
+            }
+        }
+        return true;
     }
 }
