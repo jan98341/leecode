@@ -29,6 +29,7 @@ import java.util.List;
 public class Title51 {
     public static void main(String[] args) {
         System.out.println(JSON.toJSONString(solveNQueens(4)));
+        System.out.println(JSON.toJSONString(solveNQueens(3)));
         System.out.println(JSON.toJSONString(solveNQueens(2)));
         System.out.println(JSON.toJSONString(solveNQueens(1)));
     }
