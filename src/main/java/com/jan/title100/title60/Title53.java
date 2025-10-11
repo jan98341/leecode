@@ -25,11 +25,38 @@ package com.jan.title100.title60;
  */
 public class Title53 {
     public static void main(String[] args) {
-        
+        int[] nums1 = {-2,1,-3,4,-1,2,1,-5,4};
+        int[] nums2 = {1};
+        int[] nums3 = {5,4,-1,7,8};
+
+        System.out.println(maxSubArray(nums1));
+        System.out.println(maxSubArray(nums2));
+        System.out.println(maxSubArray(nums3));
+
+        System.out.println(maxSubArray2(nums1));
+        System.out.println(maxSubArray2(nums2));
+        System.out.println(maxSubArray2(nums3));
     }
 
-    public int maxSubArray(int[] nums) {
+    public static int maxSubArray(int[] nums) {
+        int pre = 0, maxAns = 0;
+        for (int x : nums) {
+            pre = Math.max(pre + x, x);
+            maxAns = Math.max(maxAns, pre);
+        }
 
-        return 0;
+        return maxAns;
+    }
+
+    public static int maxSubArray2(int[] nums) {
+        int[] f = new int[nums.length];
+        f[0] = nums[0];
+        int ans = f[0];
+        for (int i = 1; i < nums.length; i++) {
+            // 动态规划
+            f[i] = Math.max(f[i - 1], 0) + nums[i];
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
     }
 }

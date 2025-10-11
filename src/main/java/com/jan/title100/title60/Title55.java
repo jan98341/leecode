@@ -28,7 +28,6 @@ public class Title55 {
         System.out.println(canJump(nums1));
         System.out.println(canJump(nums2));
         System.out.println(canJump(nums3));
-
     }
 
     public static boolean canJump(int[] nums) {
