@@ -1,5 +1,12 @@
 package com.jan.title100.title60;
 
+import com.alibaba.fastjson.JSON;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * 56. 合并区间
  * 以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。
@@ -27,11 +34,29 @@ package com.jan.title100.title60;
  */
 public class Title56 {
     public static void main(String[] args) {
-        
+        int[][] intervals1 = {{1,3}, {2,6}, {8,10}, {15,18}};
+        int[][] intervals2 = {{1,4}, {4,5}};
+        int[][] intervals3 = {{4,7}, {1,4}};
+
+        System.out.println(JSON.toJSONString(merge(intervals1)));
+        System.out.println(JSON.toJSONString(merge(intervals2)));
+        System.out.println(JSON.toJSONString(merge(intervals3)));
     }
 
-    public int[][] merge(int[][] intervals) {
-
-        return null;
+    public static int[][] merge(int[][] intervals) {
+        List<int[]> ans = new ArrayList<>();
+        // 按照左端点从小到大排序
+        Arrays.sort(intervals, (o1, o2)-> o1[0] - o2[0]);
+        for(int[] p: intervals) {
+            int m = ans.size();
+            if(m > 0 && p[0] <= ans.get(m - 1)[1]) {
+                // 可以合并，更新右端点最大值
+                ans.get(m - 1)[1] = Math.max(ans.get(m - 1)[1], p[1]);
+            } else {
+                // 不相交，无法合并
+                ans.add(p);
+            }
+        }
+        return ans.toArray(new int[ans.size()][]);
     }
 }
