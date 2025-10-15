@@ -65,7 +65,7 @@ public class Title62 {
     }
 
     /**
-     * 动态规划方法
+     * 动态规划方法，使用m*n二维数组进行存储信息
      */
     public static int uniquePaths(int m, int n) {
         int[][] a = new int[m][n];
@@ -90,9 +90,23 @@ public class Title62 {
     }
 
     /**
+     * 动态规划，使用(m+1)*(n+1)二维数组进行存储信息
+     */
+    public static int uniquePaths2(int m, int n) {
+        int[][] f = new int[m + 1][n + 1];
+        f[0][1] = 1;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                f[i + 1][j + 1] = f[i][j + 1] + f[i + 1][j];
+            }
+        }
+        return f[m][n];
+    }
+
+    /**
      * 动态规划方法，使用一维数组存放结果
      */
-    public static int uniquePaths4(int m, int n) {
+    public static int uniquePaths3(int m, int n) {
         int[] a = new int[n];
         for(int i = 0; i < n; i++) {
             a[i] = 1;
@@ -106,9 +120,23 @@ public class Title62 {
     }
 
     /**
+     * 动态规划，使用(n+1)一维数组进行存储信息
+     */
+    public static int uniquePaths4(int m, int n) {
+        int[] f = new int[n + 1];
+        f[1] = 1;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                f[j + 1] += f[j];
+            }
+        }
+        return f[n];
+    }
+
+    /**
      * 组合数学
      */
-    public static int uniquePaths2(int m, int n) {
+    public static int uniquePaths5(int m, int n) {
         return comb(m + n - 2, m - 1);
     }
 
@@ -125,40 +153,11 @@ public class Title62 {
     /**
      * 组合数学2
      */
-    public static int uniquePaths3(int m, int n) {
+    public static int uniquePaths6(int m, int n) {
         long ans = 1;
         for (int x = n, y = 1; y < m; x++, y++) {
             ans = ans * x / y;
         }
         return (int)ans;
-    }
-
-
-    /**
-     * 动态规划，使用(m+1)*(n+1)二维数组进行存储信息
-     */
-    public static int uniquePaths5(int m, int n) {
-        int[][] f = new int[m + 1][n + 1];
-        f[0][1] = 1;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                f[i + 1][j + 1] = f[i][j + 1] + f[i + 1][j];
-            }
-        }
-        return f[m][n];
-    }
-
-    /**
-     * 动态规划，使用(n+1)一维数组进行存储信息
-     */
-    public static int uniquePaths6(int m, int n) {
-        int[] f = new int[n + 1];
-        f[1] = 1;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                f[j + 1] += f[j];
-            }
-        }
-        return f[n];
     }
 }

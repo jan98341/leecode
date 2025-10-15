@@ -46,6 +46,12 @@ public class Title63 {
 //        System.out.println(uniquePathsWithObstacles3(obstacleGrid1));
 //        System.out.println(uniquePathsWithObstacles3(obstacleGrid2));
 //        System.out.println(uniquePathsWithObstacles3(obstacleGrid3));
+
+        System.out.println("------------");
+        System.out.println(uniquePathsWithObstacles4(obstacleGrid1));
+        System.out.println(uniquePathsWithObstacles4(obstacleGrid2));
+        System.out.println(uniquePathsWithObstacles4(obstacleGrid3));
+        System.out.println(uniquePathsWithObstacles4(obstacleGrid4));
     }
 
     /**
@@ -130,7 +136,31 @@ public class Title63 {
      * 动态规划方法，使用一维数组存放结果
      */
     public static int uniquePathsWithObstacles4(int[][] obstacleGrid) {
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
+        int[] f = new int[n];
+        f[0] = obstacleGrid[0][0] == 1 ? 0 : 1;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+//                if(obstacleGrid[i][j] == 1) {
+//                    f[j] = 0;
+//                    continue;
+//                }
+//                // j=0时，如果有障碍物则值为0，否则继承上一行的值
+//                // j>0时，如果有障碍物则值为0，否则上一行的值+左方向值
+//                if(j > 0  && obstacleGrid[i][j] == 0) {
+//                    f[j] += f[j - 1];
+//                }
+                // j=0时，如果有障碍物则值为0，否则继承上一行的值
+                // j>0时，如果有障碍物则值为0，否则上一行的值+左方向值
+                if(obstacleGrid[i][j] == 1) {
+                    f[j] = 0;
+                } else if(j > 0  && obstacleGrid[i][j] == 0) {
+                    f[j] += f[j - 1];
+                }
+            }
+        }
 
-        return 0;
+        return f[n - 1];
     }
 }
