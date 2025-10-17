@@ -22,7 +22,7 @@ public class Title67 {
 
     }
 
-    public String addBinary(String a, String b) {
+    public static String addBinary(String a, String b) {
 
         return null;
     }
