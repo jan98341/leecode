@@ -19,11 +19,48 @@ package com.jan.title100.title70;
  */
 public class Title67 {
     public static void main(String[] args) {
+        String a1 = "11", b1 = "1";
+        String a2 = "1010", b2 = "1011";
+        String a3 = "111111010", b3 = "0";
 
+        System.out.println(addBinary(a1, b1));
+        System.out.println(addBinary(a2, b2));
+        System.out.println(addBinary(a3, b3));
+
+        System.out.println(addBinary2(a1, b1));
+        System.out.println(addBinary2(a2, b2));
+        System.out.println(addBinary2(a3, b3));
     }
 
     public static String addBinary(String a, String b) {
+        int m = a.length(), n = b.length();
+        StringBuilder sb = new StringBuilder();
+        boolean flag = false;
+        for(int i = m - 1, j = n - 1; i >= 0 || j >= 0; i--, j--) {
+            flag = add((i >=0 ? a.charAt(i) : '0'), (j >= 0 ? b.charAt(j) : '0'), flag, sb);
+        }
+        if (flag) sb.append('1');
+        return sb.reverse().toString();
+    }
 
-        return null;
+    private static boolean add(char a, char b, boolean flag, StringBuilder sb) {
+        int r = (a - '0') + (b - '0') + (flag ? 1 : 0);
+        sb.append(r % 2);
+        return r >= 2;
+    }
+
+    public static String addBinary2(String a, String b) {
+        int m = a.length(), n = b.length();
+        StringBuilder sb = new StringBuilder();
+        boolean flag = false;
+        for(int i = m - 1, j = n - 1; i >= 0 || j >= 0; i--, j--) {
+            int r = (i >= 0 ? a.charAt(i) - '0' : 0) + (j >= 0 ? b.charAt(j) - '0' : 0) + (flag ? 1 : 0);
+            sb.append(r % 2);
+            flag = r >= 2;
+        }
+        if (flag) {
+            sb.append('1');
+        }
+        return sb.reverse().toString();
     }
 }

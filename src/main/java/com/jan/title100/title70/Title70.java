@@ -25,11 +25,84 @@ package com.jan.title100.title70;
  */
 public class Title70 {
     public static void main(String[] args) {
+        System.out.println(climbStairs(2));
+        System.out.println(climbStairs(3));
+        System.out.println(climbStairs(4));
+        System.out.println(climbStairs(5));
 
+        System.out.println(climbStairs2(2));
+        System.out.println(climbStairs2(3));
+        System.out.println(climbStairs2(4));
+        System.out.println(climbStairs2(5));
+
+        System.out.println(climbStairs3(2));
+        System.out.println(climbStairs3(3));
+        System.out.println(climbStairs3(4));
+        System.out.println(climbStairs3(5));
+
+        System.out.println(climbStairs4(2));
+        System.out.println(climbStairs4(3));
+        System.out.println(climbStairs4(4));
+        System.out.println(climbStairs4(5));
     }
 
-    public int climbStairs(int n) {
+    /**
+     * 动态规划，使用一维数组存放结果
+     * 递推式（状态转移方程） f[i]=f[i−1]+f[i−2]
+     */
+    public static int climbStairs(int n) {
+        int[] f = new int[n + 1];
+        f[0] = f[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            f[i] = f[i - 1] + f[i - 2];
+        }
+        return f[n];
+    }
 
-        return 0;
+    /**
+     * 动态规划，使用3个常量滚动存放计算数据
+     * 递推式（状态转移方程） f[i]=f[i−1]+f[i−2]
+     */
+    public static int climbStairs2(int n) {
+        int f0 = 1, f1 = 1;
+        for (int i = 2; i <= n; i++) {
+            int new_f = f0 + f1;
+            f0 = f1;
+            f1 = new_f;
+        }
+        return f1;
+    }
+
+    /**
+     * 递归，时间复杂度：O(2^n)，空间复杂度O(n)
+     * 没有利用已计算过的值，易超时
+     */
+    public static int climbStairs3(int n) {
+        return dfs(n);
+    }
+    private static int dfs(int i) {
+        if(i <= 1) {
+            return 1;
+        }
+        return dfs(i - 1) + dfs(i - 2);
+    }
+
+    /**
+     * 递归，时间复杂度：O(2^n)，空间复杂度O(n)
+     */
+    public static int climbStairs4(int n) {
+        int[] memo = new int[n + 1];
+        return dfs(n, memo);
+    }
+    private static int dfs(int i, int[] memo) {
+        // 递归边界
+        if(i <= 1) {
+            return 1;
+        }
+        // 之前计算过
+        if(memo[i] != 0) {
+            return memo[i];
+        }
+        return memo[i] = dfs(i - 1) + dfs(i - 2);
     }
 }
