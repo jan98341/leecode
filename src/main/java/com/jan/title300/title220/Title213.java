@@ -66,7 +66,7 @@ public class Title213 {
     }
 
     /**
-     * 求指定开始和结尾数组最大金额，以下空间复杂度为O(n)
+     * 求指定开始和结尾数组最大金额，以下空间复杂度为O(1)
      */
     public static int rob3(int[] nums, int start, int end) {
         int f0 = 0, f1 = 0;
