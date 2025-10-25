@@ -16,15 +16,55 @@ package com.jan.title100.title70;
  * 解释：8 的算术平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。
  *
  * 提示：
- * 0 <= x <= 231 - 1
+ * 0 <= x <= 2^31 - 1
  */
 public class Title69 {
     public static void main(String[] args) {
+        System.out.println(mySqrt(4));
+        System.out.println(mySqrt(8));
+        System.out.println(mySqrt(11));
+        System.out.println(mySqrt(17));
 
+        System.out.println(mySqrt2(4));
+        System.out.println(mySqrt2(8));
+        System.out.println(mySqrt2(11));
+        System.out.println(mySqrt2(17));
     }
 
-    public int mySqrt(int x) {
+    /**
+     * 二分查找，时间复杂度O(log n)
+     */
+    public static int mySqrt(int x) {
+        int left = 0;
+        int right = (int)Math.sqrt(Integer.MAX_VALUE) + 1;
+        while (left + 1 < right) {
+            int mid = (left + right) >>> 1;
+            if (mid * mid <= x) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
 
-        return 0;
+        return left;
+    }
+
+    /**
+     * 牛顿迭代
+     */
+    public static int mySqrt2(int x) {
+        if(x == 0) {
+            return 0;
+        }
+
+        double x0 = x, C = x;
+        while(true) {
+            double xi = 0.5 * (x0 + C / x0);
+            if(Math.abs(x0 - xi) < 1e-7) {
+                break;
+            }
+            x0 = xi;
+        }
+        return (int)x0;
     }
 }
