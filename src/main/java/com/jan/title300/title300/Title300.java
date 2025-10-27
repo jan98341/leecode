@@ -1,5 +1,8 @@
 package com.jan.title300.title300;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 300. 最长递增子序列
  * 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
@@ -33,8 +36,15 @@ public class Title300 {
         System.out.println(lengthOfLIS(nums1));
         System.out.println(lengthOfLIS(nums2));
         System.out.println(lengthOfLIS(nums3));
+
+        System.out.println(lengthOfLIS2(nums1));
+        System.out.println(lengthOfLIS2(nums2));
+        System.out.println(lengthOfLIS2(nums3));
     }
 
+    /**
+     * 递推，使用一维数组
+     */
     public static int lengthOfLIS(int[] nums) {
         int n = nums.length, ans = 0;
         int[] f = new int[n];
@@ -48,5 +58,39 @@ public class Title300 {
         }
 
         return ans;
+    }
+
+
+    /**
+     * 贪心 + 二分查找
+     * 设当前已求出的最长上升子序列的长度为 len（初始时为 1），从前往后遍历数组 nums，在遍历到 nums[i] 时：
+     * 1、如果 nums[i]>d[len] ，则直接加入到 d 数组末尾，并更新 len=len+1；
+     * 2、否则，在 d 数组中二分查找，找到第一个比 nums[i] 小的数 d[k] ，并更新 d[k+1]=nums[i]。
+     */
+    public static int lengthOfLIS2(int[] nums) {
+        List<Integer> g = new ArrayList<>();
+        for(int x : nums){
+            int j = lowerBound(g, x);
+            if(g.size() == j){
+                g.add(x);
+            } else {
+                g.set(j, x);
+            }
+        }
+
+        return g.size();
+    }
+
+    private static int lowerBound(List<Integer> g, int target) {
+        int left = -1, right = g.size();
+        while(left + 1 < right) {
+            int mid = (left + right) >>> 1;
+            if(g.get(mid) < target) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
     }
 }

@@ -106,7 +106,7 @@ public class Title72 {
             f[0]++;
             for(int j = 0; j < m; j++){
                 int tmp = f[j + 1];
-                f[j + 1] = (x == t[j])? pre : Math.min(Math.min(pre, f[j + 1]), f[j]) + 1;
+                f[j + 1] = (x == t[j])? pre : Math.min(Math.min(f[j], f[j + 1]), pre) + 1;
                 pre = tmp;
             }
         }
