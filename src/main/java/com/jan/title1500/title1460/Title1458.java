@@ -105,7 +105,7 @@ public class Title1458 {
         Arrays.fill(f, Integer.MIN_VALUE);
 
         for(int num : nums1) {
-            // 注意pre位置，是在第一层循环内进行设置
+            // 注意pre位置，是在第一层循环内进行初始化
             int pre = 0;
             for(int j = 0; j < m; j++) {
                 int tmp = f[j + 1];

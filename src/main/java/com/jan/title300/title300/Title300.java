@@ -40,6 +40,10 @@ public class Title300 {
         System.out.println(lengthOfLIS2(nums1));
         System.out.println(lengthOfLIS2(nums2));
         System.out.println(lengthOfLIS2(nums3));
+
+        System.out.println(lengthOfLIS3(nums1));
+        System.out.println(lengthOfLIS3(nums2));
+        System.out.println(lengthOfLIS3(nums3));
     }
 
     /**
@@ -60,6 +64,29 @@ public class Title300 {
         return ans;
     }
 
+    /**
+     * 递推，使用一维数组
+     */
+    public static int lengthOfLIS2(int[] nums) {
+        if(nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int n = nums.length;
+        int[] f = new int[n];
+        f[0] = 1;
+        int ans = 1;
+        for (int i = 1; i < n; i++) {
+            f[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
 
     /**
      * 贪心 + 二分查找
@@ -67,7 +94,7 @@ public class Title300 {
      * 1、如果 nums[i]>d[len] ，则直接加入到 d 数组末尾，并更新 len=len+1；
      * 2、否则，在 d 数组中二分查找，找到第一个比 nums[i] 小的数 d[k] ，并更新 d[k+1]=nums[i]。
      */
-    public static int lengthOfLIS2(int[] nums) {
+    public static int lengthOfLIS3(int[] nums) {
         List<Integer> g = new ArrayList<>();
         for(int x : nums){
             int j = lowerBound(g, x);
