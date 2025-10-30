@@ -58,6 +58,7 @@ public class Title300 {
                     f[i] = Math.max(f[i], f[j]);
                 }
             }
+            // nums[i]必须要选择，f[i]加1
             ans = Math.max(ans, ++f[i]);
         }
 
@@ -74,9 +75,9 @@ public class Title300 {
 
         int n = nums.length;
         int[] f = new int[n];
-        f[0] = 1;
-        int ans = 1;
-        for (int i = 1; i < n; i++) {
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            // f所有元素置 1，含义是每个元素都至少可以单独成为子序列，此时长度都为 1
             f[i] = 1;
             for (int j = 0; j < i; j++) {
                 if (nums[i] > nums[j]) {
