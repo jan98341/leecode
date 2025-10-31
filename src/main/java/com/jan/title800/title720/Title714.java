@@ -136,7 +136,7 @@ public class Title714 {
     }
 
     /**
-     * 动态规划，使用二维数据
+     * 动态规划，空间优化，使用两个变量
      */
     public static int maxProfit3(int[] prices, int fee) {
         int f0 = 0, f1 = -prices[0];
@@ -150,7 +150,7 @@ public class Title714 {
     }
 
     /**
-     * 动态规划，使用二维数据
+     * 动态规划，空间优化，使用两个变量
      */
     public static int maxProfit4(int[] prices, int fee) {
         int sell = 0, buy = -prices[0];
@@ -161,7 +161,6 @@ public class Title714 {
 
         return sell;
     }
-
 
     /**
      * 贪心算法
