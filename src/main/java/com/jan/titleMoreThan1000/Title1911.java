@@ -40,6 +40,10 @@ public class Title1911 {
         System.out.println(maxAlternatingSum2(nums1));
         System.out.println(maxAlternatingSum2(nums2));
         System.out.println(maxAlternatingSum2(nums3));
+
+        System.out.println(maxAlternatingSum3(nums1));
+        System.out.println(maxAlternatingSum3(nums2));
+        System.out.println(maxAlternatingSum3(nums3));
     }
 
     /**
@@ -73,5 +77,17 @@ public class Title1911 {
             f0 = newF0;
         }
         return Math.max(f0, f1);
+    }
+
+    /**
+     * 动态规划
+     */
+    public static long maxAlternatingSum3(int[] nums) {
+        long even = nums[0], odd = 0;
+        for (int i = 1; i < nums.length; i++) {
+            even = Math.max(even, odd + nums[i]);
+            odd = Math.max(odd, even - nums[i]);
+        }
+        return even;
     }
 }

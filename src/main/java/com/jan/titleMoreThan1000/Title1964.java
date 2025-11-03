@@ -113,6 +113,9 @@ public class Title1964 {
         return right;
     }
 
+    /**
+     * 贪心 + 折半
+     */
     public static int[] longestObstacleCourseAtEachPosition2(int[] obstacles) {
         int n = obstacles.length;
         int[] f = new int[n];

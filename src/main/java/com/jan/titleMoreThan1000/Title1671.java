@@ -1,5 +1,8 @@
 package com.jan.titleMoreThan1000;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 1671. 得到山形数组的最少删除次数
  * 我们定义 arr 是 山形数组 当且仅当它满足：
@@ -26,11 +29,76 @@ package com.jan.titleMoreThan1000;
  */
 public class Title1671 {
     public static void main(String[] args) {
+        int[] nums1 = {1,3,1};
+        int[] nums2 = {2,1,1,5,6,2,3,1};
 
+        System.out.println(minimumMountainRemovals(nums1));
+        System.out.println(minimumMountainRemovals(nums2));
     }
 
-    public int minimumMountainRemovals(int[] nums) {
+
+    /**
+     * 以nums[i]为峰顶，计算此时山形子序列的最长长度，山形子序列可以看成一个严格递增子序列，拼接一个严格递减子序列
+     * 1、定义 pre[i] 表示子序列最后一个数是 nums[i] 的最长严格递增子序列的长度
+     * 2、定义 suf[i] 表示子序列第一个数是 nums[i] 的最长严格递减子序列的长度
+     * 注意本题要求峰顶左右两侧必须有数字，所以在 pre[i]≥2 且 suf[i]≥2 的情况下，可以把这两部分拼起来，再去掉中间重复的一个 nums[i]，
+     * 得到以 nums[i] 为峰顶的最长山形子序列的长度：pre[i]+suf[i]−1，枚举 i，取上式取最大值，即为答案
+     */
+    public static int minimumMountainRemovals2(int[] nums) {
+        List<Integer> g = new ArrayList<>();
+        int n = nums.length;
 
         return 0;
+    }
+
+    /**
+     * 以nums[i]为峰顶，计算此时山形子序列的最长长度，山形子序列可以看成一个严格递增子序列，拼接一个严格递减子序列
+     * 1、定义 pre[i] 表示子序列最后一个数是 nums[i] 的最长严格递增子序列的长度
+     * 2、定义 suf[i] 表示子序列第一个数是 nums[i] 的最长严格递减子序列的长度
+     * 注意本题要求峰顶左右两侧必须有数字，所以在 pre[i]≥2 且 suf[i]≥2 的情况下，可以把这两部分拼起来，再去掉中间重复的一个 nums[i]，
+     * 得到以 nums[i] 为峰顶的最长山形子序列的长度：pre[i]+suf[i]−1，枚举 i，取上式取最大值，即为答案
+     */
+    public static int minimumMountainRemovals(int[] nums) {
+        List<Integer> g = new ArrayList<>();
+        int n = nums.length;
+        int[] suf = new int[n];
+        for(int i = n - 1; i >= 0; i--) {
+            int x = nums[i];
+            int j = lowerbound(g, x);
+            if(j == g.size()) {
+                g.add(x);
+            } else {
+                g.set(j, x);
+            }
+            suf[i] = j + 1;
+        }
+
+        g.clear();
+        int mx = 0;
+        for(int i = 0; i < n; i++) {
+            int y = nums[i];
+            int k = lowerbound(g, y);
+            if(k == g.size()) {
+                g.add(y);
+            } else {
+                g.set(k, y);
+            }
+            int pre = k + 1;
+            mx = Math.max(mx, pre + suf[i] - 1);
+        }
+
+        return n - mx;
+    }
+    private static int lowerbound(List<Integer> g, int target) {
+        int left = -1, right = g.size();
+        while(left + 1 < right) {
+            int mid = (left + right) >>> 1;
+            if(g.get(mid) < target) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
     }
 }

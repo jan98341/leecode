@@ -48,13 +48,50 @@ public class Title1691 {
         System.out.println(maxHeight(cuboids1));
         System.out.println(maxHeight(cuboids2));
         System.out.println(maxHeight(cuboids3));
+
+        System.out.println(maxHeight2(cuboids1));
+        System.out.println(maxHeight2(cuboids2));
+        System.out.println(maxHeight2(cuboids3));
+    }
+
+    /**
+     * 记忆化搜索
+     * A可以堆叠在B上面，当且仅当 w1<w2且l1<l2且h1<h2，可以通过反证法进行证明
+     * 通过上面的推论，每个长方体自身先按长宽高照升序排序，然后各长方体之间按照长宽高按照升序排列，最后使用LIS算法求最大高度
+     */
+    public static int maxHeight(int[][] cuboids) {
+        for(int[] c : cuboids) {
+            Arrays.sort(c);
+        }
+        Arrays.sort(cuboids, (a, b) -> (a[0] != b[0]) ? a[0] - b[0] : (a[1] != b[1]) ? a[1] - b[1] : a[2] - b[2]);
+
+        int n = cuboids.length, ans = 0;
+        int[] memo = new int[n];
+        Arrays.fill(memo, -1);
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, dfs(i, cuboids, memo));
+        }
+        return ans;
+    }
+
+    private static int dfs(int i, int[][] cuboids, int[] memo) {
+        if(memo[i] != -1) {
+            return memo[i];
+        }
+        int res = 0;
+        for(int j = 0; j < i; j++) {
+            if(cuboids[i][1] >= cuboids[j][1] && cuboids[i][2] >= cuboids[j][2]) {
+                res = Math.max(res, dfs(j, cuboids, memo));
+            }
+        }
+        return memo[i] = res + cuboids[i][2];
     }
 
     /**
      * A可以堆叠在B上面，当且仅当 w1<w2且l1<l2且h1<h2，可以通过反证法进行证明
      * 通过上面的推论，每个长方体自身先按长宽高照升序排序，然后各长方体之间按照长宽高按照升序排列，最后使用LIS算法求最大高度
      */
-    public static int maxHeight(int[][] cuboids) {
+    public static int maxHeight2(int[][] cuboids) {
         for(int[] c : cuboids) {
             Arrays.sort(c);
         }
