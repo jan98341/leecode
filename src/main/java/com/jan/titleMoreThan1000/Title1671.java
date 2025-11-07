@@ -36,21 +36,6 @@ public class Title1671 {
         System.out.println(minimumMountainRemovals(nums2));
     }
 
-
-    /**
-     * 以nums[i]为峰顶，计算此时山形子序列的最长长度，山形子序列可以看成一个严格递增子序列，拼接一个严格递减子序列
-     * 1、定义 pre[i] 表示子序列最后一个数是 nums[i] 的最长严格递增子序列的长度
-     * 2、定义 suf[i] 表示子序列第一个数是 nums[i] 的最长严格递减子序列的长度
-     * 注意本题要求峰顶左右两侧必须有数字，所以在 pre[i]≥2 且 suf[i]≥2 的情况下，可以把这两部分拼起来，再去掉中间重复的一个 nums[i]，
-     * 得到以 nums[i] 为峰顶的最长山形子序列的长度：pre[i]+suf[i]−1，枚举 i，取上式取最大值，即为答案
-     */
-    public static int minimumMountainRemovals2(int[] nums) {
-        List<Integer> g = new ArrayList<>();
-        int n = nums.length;
-
-        return 0;
-    }
-
     /**
      * 以nums[i]为峰顶，计算此时山形子序列的最长长度，山形子序列可以看成一个严格递增子序列，拼接一个严格递减子序列
      * 1、定义 pre[i] 表示子序列最后一个数是 nums[i] 的最长严格递增子序列的长度
@@ -84,7 +69,10 @@ public class Title1671 {
                 g.set(k, y);
             }
             int pre = k + 1;
-            mx = Math.max(mx, pre + suf[i] - 1);
+            // 本题要求峰顶左右两侧必须有数字，所以 pre[i]≥2 且 suf[i]≥2
+            if (pre >= 2 && suf[i] >= 2) {
+                mx = Math.max(mx, pre + suf[i] - 1);
+            }
         }
 
         return n - mx;

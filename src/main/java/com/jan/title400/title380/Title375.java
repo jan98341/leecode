@@ -53,22 +53,47 @@ public class Title375 {
         System.out.println(getMoneyAmount(10));
         System.out.println(getMoneyAmount(1));
         System.out.println(getMoneyAmount(2));
+
+        System.out.println(getMoneyAmount2(10));
+        System.out.println(getMoneyAmount2(1));
+        System.out.println(getMoneyAmount2(2));
+    }
+
+    /**
+     * 状态转移方程为 dfs(i,j)={k+max(dfs(i,k−1),dfs(k+1,j))}，其中i≤k≤j
+     */
+    public static int getMoneyAmount(int n) {
+        int[] nums = new int[n + 1];
+        int[][] memo = new int[n + 1][n + 1];
+        return dfs(1, n ,  memo);
+    }
+
+    private static int dfs(int i, int j,  int[][] memo) {
+        if (i + 1 > j) {
+            return 0;
+        }
+        if (memo[i][j] > 0) {
+            return memo[i][j];
+        }
+        int res = Integer.MAX_VALUE;
+        for (int k = i; k <= j; k++) {
+            res = Math.min(res, Math.max(dfs(i, k - 1,  memo), dfs(k + 1, j, memo)) + k);
+        }
+        return memo[i][j] = res;
     }
 
     /**
      * 状态转移方程为 f(i,j)={k+max(f(i,k−1),f(k+1,j))}，其中i≤k≤j
      */
-    public static int getMoneyAmount(int n) {
+    public static int getMoneyAmount2(int n) {
         int[][] f = new int[n + 1][n + 1];
         for (int i = n - 1; i > 0; i--) {
             for(int j = i + 1; j <= n; j++) {
-                // ??
-                // 在根据状态转移方程计算时需要注意下标的边界问题，当 j=n 时，如果 k=j 则 k+1>n，此时 f[k][j] 会出现下标越界。
-                // 为了避免出现下标越界，计算 f[i][j] 的方法是：首先令 f[i][j]=j+f[i][j−1]
-                f[i][j] = j + f[i][j - 1];
+                int min = Integer.MAX_VALUE;
                 for(int k = i; k < j; k++) {
-                    f[i][j] = Math.min(f[i][j], k + Math.max(f[i][k - 1], f[k + 1][j]));
+                    min = Math.min(min, k + Math.max(f[i][k - 1], f[k + 1][j]));
                 }
+                f[i][j] = min;
             }
         }
 
