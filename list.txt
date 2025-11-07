@@ -39,13 +39,9 @@
 1617. 统计子树中城市之间最大距离 https://leetcode.cn/problems/count-subtrees-with-max-distance-between-cities/
 2538. 最大价值和与最小价值和的差值 https://leetcode.cn/problems/difference-between-maximum-and-minimum-price-sum/
 337. 打家劫舍 III https://leetcode.cn/problems/house-robber-iii/solution/shi-pin-ru-he-si-kao-shu-xing-dppythonja-a7t1/
-没有上司的舞会 https://www.luogu.com.cn/problem/P1352
 1377. T 秒后青蛙的位置 https://leetcode.cn/problems/frog-position-after-t-seconds/
 2646. 最小化旅行的价格总和 https://leetcode.cn/problems/minimize-the-total-price-of-the-trips/
 968. 监控二叉树 https://leetcode.cn/problems/binary-tree-cameras/solution/shi-pin-ru-he-si-kao-shu-xing-dpgai-chen-uqsf/
-保安站岗 https://www.luogu.com.cn/problem/P2458
-保安站岗 Python 代码 https://www.luogu.com.cn/paste/y9iiynzw
-保安站岗 Go 代码 https://www.luogu.com.cn/paste/ei5ihtp6
 LCP34. 二叉树染色（选做） https://leetcode.cn/problems/er-cha-shu-ran-se-UGC/
 LCP64. 二叉树灯饰（选做） https://leetcode.cn/problems/U7WvvU/
 

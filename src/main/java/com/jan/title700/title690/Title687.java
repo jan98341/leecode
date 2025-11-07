@@ -22,10 +22,50 @@ import com.jan.share.TreeNode;
  */
 public class Title687 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(5);
+        TreeNode node121 = new TreeNode(4);
+        TreeNode node122 = new TreeNode(5);
+        TreeNode node131 = new TreeNode(1);
+        TreeNode node132 = new TreeNode(1);
+        TreeNode node133 = new TreeNode(5);
+        root1.left = node121;root1.right = node122;
+        node121.left = node131;node121.right = node132;node122.right = node133;
 
+        TreeNode root2 = new TreeNode(1);
+        TreeNode node221 = new TreeNode(4);
+        TreeNode node222 = new TreeNode(5);
+        TreeNode node231 = new TreeNode(4);
+        TreeNode node232 = new TreeNode(4);
+        TreeNode node233 = new TreeNode(5);
+        root2.left = node221;root2.right = node222;
+        node221.left = node231;node221.right = node232;
+        node222.left = node233;
+
+        Title687 title687 = new Title687();
+        System.out.println(title687.longestUnivaluePath(root1));
+        System.out.println(title687.longestUnivaluePath(root2));
     }
-    public int longestUnivaluePath(TreeNode root) {
 
-        return 0;
+    private int ans;
+    public int longestUnivaluePath(TreeNode root) {
+        dfs(root);
+        return ans;
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null) {
+            // 下面 +1 后，对于叶子节点就刚好是 0
+            return -1;
+        }
+        int lLen = dfs(node.left) + 1;
+        int rLen = dfs(node.right) + 1;
+        if(node.left != null && node.val != node.left.val) {
+            lLen = 0;
+        }
+        if(node.right != null && node.val != node.right.val) {
+            rLen = 0;
+        }
+        ans = Math.max(ans, lLen + rLen);
+        return Math.max(lLen, rLen);
     }
 }
