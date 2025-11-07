@@ -1,5 +1,9 @@
 package com.jan.titleMoreThan1000;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 3203. 合并两棵树后的最小直径
  * 给你两棵 无向 树，分别有 n 和 m 个节点，节点编号分别为 0 到 n - 1 和 0 到 m - 1 。给你两个二维整数数组 edges1 和 edges2 ，长度分别为 n - 1 和 m - 1 ，其中 edges1[i] = [ai, bi] 表示在第一棵树中节点 ai 和 bi 之间有一条边，edges2[i] = [ui, vi] 表示在第二棵树中节点 ui 和 vi 之间有一条边。
@@ -32,11 +36,42 @@ package com.jan.titleMoreThan1000;
  */
 public class Title3203 {
     public static void main(String[] args) {
+        int[][] edges11 = {{0,1},{0,2},{0,3}}, edges12 = {{0,1}};
+        int[][] edges21 = {{0,1},{0,2},{0,3},{2,4},{2,5},{3,6},{2,7}}, edges22 = {{0,1},{0,2},{0,3},{2,4},{2,5},{3,6},{2,7}};
 
+        Title3203 title3203 = new Title3203();
+        System.out.println(title3203.minimumDiameterAfterMerge(edges11, edges12));
+        System.out.println(title3203.minimumDiameterAfterMerge(edges21, edges22));
     }
 
     public int minimumDiameterAfterMerge(int[][] edges1, int[][] edges2) {
+        int d1 = diameter(edges1), d2 = diameter(edges2);
+        return Math.max(Math.max(d1, d2), (d1 + 1) / 2 + (d2 + 1) / 2 + 1);
+    }
 
-        return 0;
+    private int res;
+    private int diameter(int[][] edges) {
+        List<Integer>[] g = new ArrayList[edges.length + 1];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int[] e : edges) {
+            int x = e[0], y = e[1];
+            g[x].add(y);
+            g[y].add(x);
+        }
+        res = 0;
+        dfs(0, -1, g);
+        return res;
+    }
+
+    private int dfs(int x, int fa, List<Integer>[] g) {
+        int maxLen = 0;
+        for(int y : g[x]) {
+            if(y != fa) {
+                int subLen = dfs(y, x, g) + 1;
+                res = Math.max(res, maxLen + subLen);
+                maxLen = Math.max(maxLen, subLen);
+            }
+        }
+        return maxLen;
     }
 }
