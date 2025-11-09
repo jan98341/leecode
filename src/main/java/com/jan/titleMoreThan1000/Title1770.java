@@ -91,12 +91,16 @@ public class Title1770 {
             f[0][j] = f[0][j - 1] + nums[n - j] * multipliers[j - 1];
         }
 
-        int ans = Integer.MIN_VALUE;
         for (int i = 1;i <= m; i++){
             for (int j = 1; i + j <= m; j++){
                 f[i][j] = Math.max(f[i - 1][j] + nums[i - 1] * multipliers[i + j - 1], f[i][j - 1] + nums[n - j] * multipliers[i + j - 1]);
-                ans = Math.max(ans, f[i][j]);
             }
+        }
+
+        // 遍历所有可能的组合（满足i + j = m）获得最大得分。
+        int ans = Integer.MIN_VALUE;
+        for (int i = 0;i <= m; i++) {
+            ans = Math.max(ans, f[i][m - i]);
         }
         return ans;
     }
