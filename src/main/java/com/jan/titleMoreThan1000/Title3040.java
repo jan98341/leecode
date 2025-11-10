@@ -111,7 +111,7 @@ public class Title3040 {
         if(done) {
             return 0;
         }
-        return dfs(i, j, target);
+        return dfs1(i, j, target);
     }
 
     private int dfs1(int i, int j, int target) {
