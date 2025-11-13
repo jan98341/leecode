@@ -29,18 +29,18 @@
 1312. 让字符串成为回文串的最少插入次数 √
 1770. 执行乘法运算的最大分数 √
 1771. 由子序列构造的最长回文串的长度 √
-1547. 切棍子的最小成本 --
-1000. 合并石头的最低成本 --
-543. 二叉树的直径 --
+1547. 切棍子的最小成本 √
+1000. 合并石头的最低成本 √
+543. 二叉树的直径 √
 124. 二叉树中的最大路径和  --
 2246. 相邻字符不同的最长路径
 687. 最长同值路径 --
 3203. 合并两棵树后的最小直径 --
 
-337. 打家劫舍 III https://leetcode.cn/problems/house-robber-iii/solution/shi-pin-ru-he-si-kao-shu-xing-dppythonja-a7t1/
-1377. T 秒后青蛙的位置 https://leetcode.cn/problems/frog-position-after-t-seconds/
+337. 打家劫舍 III --
+1377. T 秒后青蛙的位置 --
 2646. 最小化旅行的价格总和 https://leetcode.cn/problems/minimize-the-total-price-of-the-trips/
-968. 监控二叉树 https://leetcode.cn/problems/binary-tree-cameras/solution/shi-pin-ru-he-si-kao-shu-xing-dpgai-chen-uqsf/
+968. 监控二叉树 9--
 LCP34. 二叉树染色（选做） https://leetcode.cn/problems/er-cha-shu-ran-se-UGC/
 LCP64. 二叉树灯饰（选做） https://leetcode.cn/problems/U7WvvU/
 
