@@ -40,7 +40,7 @@
 337. 打家劫舍 III --
 1377. T 秒后青蛙的位置 --
 2646. 最小化旅行的价格总和 https://leetcode.cn/problems/minimize-the-total-price-of-the-trips/
-968. 监控二叉树 9--
+968. 监控二叉树 --
 LCP34. 二叉树染色（选做） https://leetcode.cn/problems/er-cha-shu-ran-se-UGC/
 LCP64. 二叉树灯饰（选做） https://leetcode.cn/problems/U7WvvU/
 
