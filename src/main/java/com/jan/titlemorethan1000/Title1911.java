@@ -1,4 +1,4 @@
-package com.jan.titleMoreThan1000;
+package com.jan.titlemorethan1000;
 
 /**
  * 1911. 最大交替子序列和

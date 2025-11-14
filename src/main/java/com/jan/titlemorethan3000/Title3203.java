@@ -1,4 +1,4 @@
-package com.jan.titleMoreThan1000;
+package com.jan.titlemorethan3000;
 
 import java.util.ArrayList;
 import java.util.Arrays;

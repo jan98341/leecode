@@ -1,4 +1,4 @@
-package com.jan.titleMoreThan1000;
+package com.jan.titlemorethan1000;
 
 /**
  * 1771. 由子序列构造的最长回文串的长度

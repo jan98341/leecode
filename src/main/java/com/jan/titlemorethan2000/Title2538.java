@@ -1,4 +1,4 @@
-package com.jan.titleMoreThan1000;
+package com.jan.titlemorethan2000;
 
 /**
  * 2538. 最大价值和与最小价值和的差值

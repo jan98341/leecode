@@ -1,4 +1,4 @@
-package com.jan.titleMoreThan1000;
+package com.jan.titlemorethan1000;
 
 /**
  * 1312. 让字符串成为回文串的最少插入次数

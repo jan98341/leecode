@@ -1,4 +1,4 @@
-package com.jan.titleMoreThan1000;
+package com.jan.titlemorethan1000;
 
 /**
  * 1617. 统计子树中城市之间最大距离

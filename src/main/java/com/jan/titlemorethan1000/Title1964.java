@@ -1,4 +1,4 @@
-package com.jan.titleMoreThan1000;
+package com.jan.titlemorethan1000;
 
 import com.alibaba.fastjson.JSON;
 
