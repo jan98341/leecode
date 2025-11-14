@@ -39,13 +39,57 @@
 
 337. 打家劫舍 III --
 1377. T 秒后青蛙的位置 --
-2646. 最小化旅行的价格总和 https://leetcode.cn/problems/minimize-the-total-price-of-the-trips/
+2646. 最小化旅行的价格总和 --
 968. 监控二叉树 --
-LCP34. 二叉树染色（选做） https://leetcode.cn/problems/er-cha-shu-ran-se-UGC/
-LCP64. 二叉树灯饰（选做） https://leetcode.cn/problems/U7WvvU/
 
+两数之和 三数之和【基础算法精讲 01】
+167. 两数之和 II - 输入有序数组 https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solution/san-shu-zhi-he-bu-hui-xie-xiang-xiang-sh-6wbq/
+15. 三数之和 https://leetcode.cn/problems/3sum/solution/shuang-zhi-zhen-xiang-bu-ming-bai-yi-ge-pno55/
+2824. 统计和小于目标的下标对数目 https://leetcode.cn/problems/count-pairs-whose-sum-is-less-than-target/
+16. 最接近的三数之和 https://leetcode.cn/problems/3sum-closest/
+18. 四数之和 https://leetcode.cn/problems/4sum/
+611. 有效三角形的个数 https://leetcode.cn/problems/valid-triangle-number/
 
+盛最多水的容器 接雨水【基础算法精讲 02】
+11. 盛最多水的容器 https://leetcode.cn/problems/container-with-most-water/solution/by-endlesscheng-f0xz/
+42. 接雨水 https://leetcode.cn/problems/trapping-rain-water/solution/zuo-liao-nbian-huan-bu-hui-yi-ge-shi-pin-ukwm/
+125. 验证回文串 https://leetcode.cn/problems/valid-palindrome/
+2105. 给植物浇水 II https://leetcode.cn/problems/watering-plants-ii/
 
+滑动窗口【基础算法精讲 03】
+209. 长度最小的子数组 https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/
+3. 无重复字符的最长子串 https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/
+713. 乘积小于 K 的子数组 https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/
+3090. 每个字符最多出现两次的最长子字符串 https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences/
+2958. 最多 K 个重复元素的最长子数组 https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency/
+2730. 找到最长的半重复子字符串 https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/
+1004. 最大连续 1 的个数 III https://leetcode.cn/problems/max-consecutive-ones-iii/
+2962. 统计最大元素出现至少 K 次的子数组 https://leetcode.cn/problems/count-subarrays-where-max-element-appears-at-least-k-times/
+2302. 统计得分小于 K 的子数组数目 https://leetcode.cn/problems/count-subarrays-with-score-less-than-k/
+1658. 将 x 减到 0 的最小操作数 https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero/
+76. 最小覆盖子串 https://leetcode.cn/problems/minimum-window-substring/
+
+二分查找 红蓝染色法【基础算法精讲 04】
+34. 在排序数组中查找元素的第一个和最后一个位置 https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/solution/er-fen-cha-zhao-zong-shi-xie-bu-dui-yi-g-t9l9/
+2529. 正整数和负整数的最大计数 https://leetcode.cn/problems/maximum-count-of-positive-integer-and-negative-integer/
+2300. 咒语和药水的成功对数 https://leetcode.cn/problems/successful-pairs-of-spells-and-potions/
+1385. 两个数组间的距离值 https://leetcode.cn/problems/find-the-distance-value-between-two-arrays/
+2080. 区间内查询数字的频率 https://leetcode.cn/problems/range-frequency-queries/
+2563. 统计公平数对的数目 https://leetcode.cn/problems/count-the-number-of-fair-pairs/
+275. H 指数 II https://leetcode.cn/problems/h-index-ii/
+875. 爱吃香蕉的珂珂 https://leetcode.cn/problems/koko-eating-bananas/
+2187. 完成旅途的最少时间 https://leetcode.cn/problems/minimum-time-to-complete-trips/
+2861. 最大合金数 https://leetcode.cn/problems/maximum-number-of-alloys/
+2439. 最小化数组中的最大值 https://leetcode.cn/problems/minimize-maximum-of-array/
+2517. 礼盒的最大甜蜜度 https://leetcode.cn/problems/maximum-tastiness-of-candy-basket/
+
+数组峰值 搜索旋转排序数组【基础算法精讲 05】
+162. 寻找峰值 https://leetcode.cn/problems/find-peak-element/solution/by-endlesscheng-9ass/
+153. 寻找旋转排序数组中的最小值 https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solution/by-endlesscheng-owgd/
+33. 搜索旋转排序数组 https://leetcode.cn/problems/search-in-rotated-sorted-array/solution/by-endlesscheng-auuh/
+74. 搜索二维矩阵 https://leetcode.cn/problems/search-a-2d-matrix/
+1901. 寻找峰值 II https://leetcode.cn/problems/find-a-peak-element-ii/
+154. 寻找旋转排序数组中的最小值 II https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/
 
 
 
