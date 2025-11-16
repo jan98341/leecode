@@ -83,14 +83,14 @@ public class Title2646 {
             return true;
         }
 
-        // // x 是 end 的祖先节点，也就在路径上
+        // x 是 end 的祖先节点，也就在路径上
         for(int y : g[x]) {
             if(y != fa && dfs(y, x)) {
                 cnt[x]++;
                 return true;
             }
         }
-        // // 未找到 end
+        // 未找到 end
         return false;
     }
 
