@@ -1,5 +1,7 @@
 package com.jan.title200.title170;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * 167. 两数之和 II - 输入有序数组
  * 给你一个下标从 1 开始的整数数组 numbers ，该数组已按 非递减顺序排列  ，请你从数组中找出满足相加之和等于目标数 target 的两个数。
@@ -32,11 +34,52 @@ package com.jan.title200.title170;
  */
 public class Title167 {
     public static void main(String[] args) {
+        int[] number1 = {2,7,11,15};
+        int[] number2 = {2,3,4};
+        int[] number3 = {-1,0};
 
+        Title167 title167 = new Title167();
+        System.out.println(JSON.toJSONString(title167.twoSum(number1, 9)));
+        System.out.println(JSON.toJSONString(title167.twoSum(number2, 6)));
+        System.out.println(JSON.toJSONString(title167.twoSum(number3, -1)));
+
+        System.out.println(JSON.toJSONString(title167.twoSum2(number1, 9)));
+        System.out.println(JSON.toJSONString(title167.twoSum2(number2, 6)));
+        System.out.println(JSON.toJSONString(title167.twoSum2(number3, -1)));
     }
 
+    /**
+     * 使用双指针，左右向中心逼近答案
+     */
     public int[] twoSum(int[] numbers, int target) {
+        int left = 0, right = numbers.length - 1;
+        int[] ans = new int[2];
+        while (left < right) {
+            int s = numbers[left] + numbers[right];
+            if (s == target) {
+                ans[0] = left + 1;
+                ans[1] = right + 1;
+                break;
+            } else if (s > target) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        return ans;
+    }
 
-        return null;
+    public int[] twoSum2(int[] numbers, int target) {
+        int left = 0, right = numbers.length - 1;
+        while (true) {
+            int s = numbers[left] + numbers[right];
+            if (s == target) {
+                return new int[]{left + 1, right + 1};
+            } else if (s > target) {
+                right--;
+            } else {
+                left++;
+            }
+        }
     }
 }

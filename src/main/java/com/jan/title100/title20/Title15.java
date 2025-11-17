@@ -37,59 +37,67 @@ import java.util.List;
 public class Title15 {
 
     public static void main(String[] args) {
-        int[] nums1 = {-1,0,1,2,-1,2,1,-4};
+        int[] nums1 = {-1,0,1,2,-1,-4};
+        System.out.println("结果：" + Arrays.toString(threeSum(nums1).toArray()));
         System.out.println("结果：" + Arrays.toString(threeSum2(nums1).toArray()));
-//        int[] nums2 = {0,1,1};
-//        System.out.println("结果：" + Arrays.toString(threeSum2(nums2).toArray()));
-//        int[] nums3 = {0,0,0};
-//        System.out.println("结果：" + Arrays.toString(threeSum2(nums3).toArray()));
-//        int[] nums4 = {0,0,0,0};
-//        System.out.println("结果：" + Arrays.toString(threeSum2(nums4).toArray()));
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> ansList = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                for (int k = j + 1; k < nums.length; k++) {
-                    if (nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> list = Arrays.asList(nums[i], nums[j], nums[k]);
-                        ansList.add(list);
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        int n = nums.length;
+        for (int i = 0; i < n - 2; i++) {
+            int x = nums[i];
+            if (i > 0 && x == nums[i - 1]) continue; // 跳过重复数字
+            if (x + nums[i + 1] + nums[i + 2] > 0) break; // 优化一
+            if (x + nums[n - 2] + nums[n - 1] < 0) continue; // 优化二
+            int j = i + 1;
+            int k = n - 1;
+            while (j < k) {
+                int s = x + nums[j] + nums[k];
+                if (s > 0) {
+                    k--;
+                } else if (s < 0) {
+                    j++;
+                } else { // 三数之和为 0
+                    // j = i+1 表示刚开始双指针，此时 j 左边没有数字
+                    // nums[j] != nums[j-1] 说明与上一轮循环的三元组不同
+                    if (j == i + 1 || nums[j] != nums[j - 1]) {
+                        ans.add(new ArrayList<>(Arrays.asList(x, nums[j], nums[k])));
                     }
+                    j++;
+                    k--;
                 }
             }
         }
-
-        return ansList;
+        return ans;
     }
 
     public static List<List<Integer>> threeSum2(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> ansList = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int n = nums.length;
+        for (int i = 0; i < n - 2; i++) {
+            int x = nums[i];
+            if (i > 0 && x == nums[i - 1]) {
                 continue;
             }
-            int a = nums[i];
-            int left = i + 1;
-            int right = nums.length - 1;
-            while(left < right) {
-                if(nums[left] + nums[right] + a > 0) {
-                    right --;
-                } else if(nums[left] + nums[right] + a < 0) {
-                    left ++;
+
+            int j = i + 1, k = n - 1;
+            while(j < k) {
+                int s = x + nums[j] + nums[k];
+                if(s > 0) {
+                    k--;
+                } else if(s < 0) {
+                    j++;
                 } else {
-                    ansList.add(Arrays.asList(a, nums[left], nums[right]));
-                    for(left++; left < right && nums[left] == nums[left - 1]; left++){
-                        int aa = 0;
-                    };
-                    for(right--; right > left && nums[right] == nums[right + 1]; right--){
-                        int aa = 0;
-                    };
+                    ans.add(new ArrayList<>(Arrays.asList(x, nums[j], nums[k])));
+                    for(j++; j < k && nums[j] == nums[j - 1]; j++);
+                    for(k--; k > j && nums[k] == nums[k + 1]; k--);
                 }
             }
         }
 
-        return ansList;
+        return ans;
     }
 }
