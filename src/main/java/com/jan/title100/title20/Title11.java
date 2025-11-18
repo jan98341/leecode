@@ -18,8 +18,8 @@ package com.jan.title100.title20;
  *
  * 提示：
  * n == height.length
- * 2 <= n <= 105
- * 0 <= height[i] <= 104
+ * 2 <= n <= 10^5
+ * 0 <= height[i] <= 10^4
  */
 public class Title11 {
     public static void main(String[] args) {
@@ -68,8 +68,8 @@ public class Title11 {
         while (l < r) {
             int shoter = Math.min(height[l], height[r]);
             max = Math.max(max, shoter * (r - l));
-            while (l < r && height[l] <= shoter) l ++;
-            while (l < r && height[r] <= shoter) r --;
+            while (l < r && height[l] <= shoter) l++;
+            while (l < r && height[r] <= shoter) r--;
         }
         return max;
     }
