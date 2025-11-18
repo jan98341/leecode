@@ -27,6 +27,9 @@ public class Title42 {
 
         System.out.println(trap2(heights1));
         System.out.println(trap2(heights2));
+
+        System.out.println(trap3(heights1));
+        System.out.println(trap3(heights2));
     }
 
     /**
@@ -48,6 +51,25 @@ public class Title42 {
             temMax = Math.max(temMax, sufMax[j]);
         }
         for(int i = 0; i < l; i++) {
+            ans += Math.min(preMax[i], sufMax[i]) - height[i];
+        }
+
+        return ans;
+    }
+
+    public static int trap3(int[] height) {
+        int ans = 0;
+        int n = height.length;
+        int[] preMax = new int[n], sufMax = new int[n];
+        preMax[0] = height[0];
+        for (int i = 1; i < n; i++) {
+            preMax[i] = Math.max(height[i], preMax[i - 1]);
+        }
+        sufMax[n - 1] = height[n - 1];
+        for(int j = n - 2; j >= 0; j--) {
+            sufMax[j] = Math.max(height[j], sufMax[j + 1]);
+        }
+        for(int i = 0; i < n; i++) {
             ans += Math.min(preMax[i], sufMax[i]) - height[i];
         }
 
