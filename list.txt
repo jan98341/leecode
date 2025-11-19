@@ -52,12 +52,12 @@
 盛最多水的容器 接雨水【基础算法精讲 02】
 11. 盛最多水的容器 √ https://leetcode.cn/problems/container-with-most-water/solution/by-endlesscheng-f0xz/
 42. 接雨水 √ https://leetcode.cn/problems/trapping-rain-water/solution/zuo-liao-nbian-huan-bu-hui-yi-ge-shi-pin-ukwm/
-125. 验证回文串 https://leetcode.cn/problems/valid-palindrome/
-2105. 给植物浇水 II https://leetcode.cn/problems/watering-plants-ii/
+125. 验证回文串 -- https://leetcode.cn/problems/valid-palindrome/
+2105. 给植物浇水 -- II https://leetcode.cn/problems/watering-plants-ii/
 
 滑动窗口【基础算法精讲 03】
-209. 长度最小的子数组 https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/
-3. 无重复字符的最长子串 https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/
+209. 长度最小的子数组 -- https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/
+3. 无重复字符的最长子串 √ https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/
 713. 乘积小于 K 的子数组 https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/
 3090. 每个字符最多出现两次的最长子字符串 https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences/
 2958. 最多 K 个重复元素的最长子数组 https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency/

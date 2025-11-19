@@ -46,11 +46,42 @@ package com.jan.titlemorethan2000;
  */
 public class Title2105 {
     public static void main(String[] args) {
+        int[] plants1 = {2,2,3,3};
+        int[] plants2 = {2,2,3,3};
+        int[] plants3 = {5};
 
+        Title2105 title2105 = new Title2105();
+        System.out.println(title2105.minimumRefill(plants1, 5, 5));
+        System.out.println(title2105.minimumRefill(plants2, 3, 4));
+        System.out.println(title2105.minimumRefill(plants3, 10, 8));
     }
 
     public int minimumRefill(int[] plants, int capacityA, int capacityB) {
+        int left = 0, right = plants.length - 1, ans = 0;
+        int waterA = capacityA, waterB = capacityB;
+        while(left < right) {
+            if(waterA < plants[left]) {
+                // 没有足够的水，重新灌满水罐
+                waterA = capacityA;
+                ans++;
+            }
+            // Alice 给植物浇水
+            waterA -= plants[left++];
 
-        return 0;
+            if(waterB < plants[right]) {
+                // 没有足够的水，重新灌满水罐
+                waterB = capacityB;
+                ans++;
+            }
+            // Bob 给植物浇水
+            waterB -= plants[right--];
+
+            // 如果 Alice 和 Bob 到达同一株植物，那么当前水罐中水更多的人会给这株植物浇水
+            if(left == right && plants[left] > Math.max(waterA, waterB)) {
+                ans++;
+            }
+        }
+
+        return ans;
     }
 }
