@@ -36,15 +36,14 @@
 2246. 相邻字符不同的最长路径 √
 687. 最长同值路径 √
 3203. 合并两棵树后的最小直径 √
-
 337. 打家劫舍 III √
 1377. T 秒后青蛙的位置 √
-2646. 最小化旅行的价格总和 --
-968. 监控二叉树 --
+2646. 最小化旅行的价格总和 √
+968. 监控二叉树 √
 
 两数之和 三数之和【基础算法精讲 01】
 167. 两数之和 II - 输入有序数组 -- https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solution/san-shu-zhi-he-bu-hui-xie-xiang-xiang-sh-6wbq/
-15. 三数之和 --  https://leetcode.cn/problems/3sum/solution/shuang-zhi-zhen-xiang-bu-ming-bai-yi-ge-pno55/
+15. 三数之和  √  https://leetcode.cn/problems/3sum/solution/shuang-zhi-zhen-xiang-bu-ming-bai-yi-ge-pno55/
 2824. 统计和小于目标的下标对数目 --  https://leetcode.cn/problems/count-pairs-whose-sum-is-less-than-target/
 16. 最接近的三数之和 √  https://leetcode.cn/problems/3sum-closest/
 18. 四数之和 √ https://leetcode.cn/problems/4sum/

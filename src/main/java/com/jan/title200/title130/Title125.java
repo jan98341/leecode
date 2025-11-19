@@ -28,11 +28,68 @@ package com.jan.title200.title130;
  */
 public class Title125 {
     public static void main(String[] args) {
+        String s1 = "A man, a plan, a canal: Panama";
+        String s2 = "race a car";
+        String s3 = " ";
 
+        Title125 title125 = new Title125();
+        System.out.println(title125.isPalindrome(s1));
+        System.out.println(title125.isPalindrome(s2));
+        System.out.println(title125.isPalindrome(s3));
+
+        System.out.println(title125.isPalindrome2(s1));
+        System.out.println(title125.isPalindrome2(s2));
+        System.out.println(title125.isPalindrome2(s3));
     }
 
     public boolean isPalindrome(String s) {
+        char[] chars = s.toCharArray();
+        int left = 0, right = chars.length - 1;
+        while (left < right) {
+            char l = getChar(chars[left]);
+            while(l == '0' && left < right) {
+                left++;
+                l = getChar(chars[left]);
+            }
+            char r = getChar(chars[right]);
+            while(r == '0' && left < right) {
+                right--;
+                r = getChar(chars[right]);
+            }
+            if(l != r) {
+                return false;
+            } else {
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
 
-        return false;
+    private char getChar(char c) {
+        if((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) {
+            return c;
+        } else if(c >= 'A' && c <= 'Z') {
+            return (char)(c + 32);
+        } else {
+            return '0';
+        }
+    }
+
+    public boolean isPalindrome2(String s) {
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            if(!Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+            } else if(!Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+            } else if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                return false;
+            } else {
+                left++;
+                right--;
+            }
+        }
+        return true;
     }
 }
