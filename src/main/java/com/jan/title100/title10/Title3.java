@@ -10,8 +10,9 @@ public class Title3 {
         Title3 t3 = new Title3();
 //        String result = t3.traverseAllString(strCheckString);
 //        System.out.println("搜索结果为：" + result);
-        int length = t3.lengthOfLongestSubstring2(strCheckString);
-        System.out.println("搜索结果为：" + length);
+        System.out.println("搜索结果为：" + t3.lengthOfLongestSubstring1(strCheckString));
+        System.out.println("搜索结果为：" + t3.lengthOfLongestSubstring2(strCheckString));
+        System.out.println("搜索结果为：" + t3.lengthOfLongestSubstring3(strCheckString));
     }
 
     private int lengthOfLongestSubstring1(String s) {
@@ -98,5 +99,24 @@ public class Title3 {
         }
 
         return -1;
+    }
+
+    private int lengthOfLongestSubstring3(String strCheckString) {
+        char[] s = strCheckString.toCharArray();
+        int n = s.length, left = 0, ans = 0;
+        int[] cnt = new int[128];
+        for (int right = 0; right < n; right++) {
+            char c = s[right];
+            cnt[c]++;
+            // 窗口内有重复字母
+            while (cnt[c] > 1) {
+                // 移除窗口左端点字母
+                cnt[s[left]]--;
+                left++;
+            }
+            // 更新窗口长度最大值
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
     }
 }

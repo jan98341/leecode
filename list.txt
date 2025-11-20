@@ -57,8 +57,8 @@
 
 滑动窗口【基础算法精讲 03】
 209. 长度最小的子数组 -- https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/
-3. 无重复字符的最长子串 √ https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/
-713. 乘积小于 K 的子数组 https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/
+3. 无重复字符的最长子串 -- https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/
+713. 乘积小于 K 的子数组 -- https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/
 3090. 每个字符最多出现两次的最长子字符串 https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences/
 2958. 最多 K 个重复元素的最长子数组 https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency/
 2730. 找到最长的半重复子字符串 https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/

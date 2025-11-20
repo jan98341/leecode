@@ -21,11 +21,33 @@ package com.jan.title800.title720;
  */
 public class Title713 {
     public static void main(String[] args) {
+        int[] nums1 = {10,5,2,6};
 
+        Title713 title713 = new Title713();
+        System.out.println(title713.numSubarrayProductLessThanK(nums1, 100));
     }
 
+    /**
+     * 内层循环结束后，[left,right] 这个子数组是满足题目要求的。由于子数组越短，越能满足题目要求，
+     * 所以除了 [left,right]，还有 [left+1,right],[left+2,right],…,[right,right] 都是满足要求的。
+     * 也就是说，当右端点固定在 right 时，左端点在 left,left+1,left+2,…,right 的所有子数组都是满足要求的，这一共有 right−left+1 个，加到答案中。
+     */
     public int numSubarrayProductLessThanK(int[] nums, int k) {
+        if(k <= 1) {
+            return 0;
+        }
 
-        return 0;
+        int ans = 0, left = 0, prod = 1;
+        for (int rihgt = 0; rihgt < nums.length; rihgt++) {
+            prod *= nums[rihgt];
+            while (prod >= k) {
+                prod /= nums[left];
+                left++;
+            }
+            // 对于固定的 right，有 right-left+1 个合法的左端点
+            ans += rihgt - left + 1;
+        }
+
+        return ans;
     }
 }
