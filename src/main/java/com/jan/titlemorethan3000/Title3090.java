@@ -22,11 +22,27 @@ package com.jan.titlemorethan3000;
  */
 public class Title3090 {
     public static void main(String[] args) {
+        String s1 = "bcbbbcba";
+        String s2 = "aaaa";
 
+        Title3090 title3090 = new Title3090();
+        System.out.println(title3090.maximumLengthSubstring(s1));
+        System.out.println(title3090.maximumLengthSubstring(s2));
     }
 
     public int maximumLengthSubstring(String s) {
-
-        return  0;
+        char[] c = s.toCharArray();
+        int n = c.length, ans = 0, left = 0;
+        int[] cnt = new int[128];
+        for(int right = 0; right < n; right++) {
+            char a = c[right];
+            cnt[a]++;
+            while(cnt[a] > 2) {
+                cnt[c[left]]--;
+                left++;
+            }
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
     }
 }

@@ -22,9 +22,11 @@ package com.jan.title800.title720;
 public class Title713 {
     public static void main(String[] args) {
         int[] nums1 = {10,5,2,6};
+        int[] nums2 = {1,2,3};
 
         Title713 title713 = new Title713();
         System.out.println(title713.numSubarrayProductLessThanK(nums1, 100));
+        System.out.println(title713.numSubarrayProductLessThanK(nums2, 0));
     }
 
     /**

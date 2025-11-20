@@ -33,11 +33,29 @@ package com.jan.titlemorethan2000;
  */
 public class Title2958 {
     public static void main(String[] args) {
+        int[] nums1 = {1,2,3,1,2,3,1,2};
+        int[] nums2 = {1,2,1,2,1,2,1,2};
+        int[] nums3 = {5,5,5,5,5,5,5};
 
+        Title2958 title2958 = new Title2958();
+        System.out.println(title2958.maxSubarrayLength(nums1, 2));
+        System.out.println(title2958.maxSubarrayLength(nums2, 1));
+        System.out.println(title2958.maxSubarrayLength(nums3, 4));
     }
 
     public int maxSubarrayLength(int[] nums, int k) {
+        int n = nums.length, ans = 0, left = 0;
+        int[] cnt = new int[11]; //  Map<Integer, Integer> cnt = new HashMap<>();
+        for(int right = 0; right < n; right++) {
+            int x = nums[right];
+            cnt[x]++; // cnt.merge(nums[right], 1, Integer::sum)
+            while(cnt[x] > k) {
+                cnt[nums[left]]--; // cnt.merge(nums[left], -1, Integer::sum);
+                left++;
+            }
+            ans = Math.max(ans, right - left + 1);
+        }
 
-        return 0;
+        return ans;
     }
 }
