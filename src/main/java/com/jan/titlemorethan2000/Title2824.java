@@ -1,14 +1,14 @@
 package com.jan.titlemorethan2000;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * 2824. 统计和小于目标的下标对数目
  * 给你一个下标从 0 开始长度为 n 的整数数组 nums 和一个整数 target ，请你返回满足 0 <= i < j < n 且 nums[i] + nums[j] < target 的下标对 (i, j) 的数目。
  *
- *
  * 示例 1：
- *
  * 输入：nums = [-1,1,2,3,1], target = 2
  * 输出：3
  * 解释：总共有 3 个下标对满足题目描述：
@@ -16,8 +16,8 @@ import java.util.List;
  * - (0, 2) ，0 < 2 且 nums[0] + nums[2] = 1 < target
  * - (0, 4) ，0 < 4 且 nums[0] + nums[4] = 0 < target
  * 注意 (0, 3) 不计入答案因为 nums[0] + nums[3] 不是严格小于 target 。
- * 示例 2：
  *
+ * 示例 2：
  * 输入：nums = [-6,2,5,-2,-7,-1,3], target = -2
  * 输出：10
  * 解释：总共有 10 个下标对满足题目描述：
@@ -32,19 +32,57 @@ import java.util.List;
  * - (4, 5) ，4 < 5 且 nums[4] + nums[5] = -8 < target
  * - (4, 6) ，4 < 6 且 nums[4] + nums[6] = -4 < target
  *
- *
  * 提示：
- *
  * 1 <= nums.length == n <= 50
  * -50 <= nums[i], target <= 50
  */
 public class Title2824 {
     public static void main(String[] args) {
-
+        List<Integer> nums1 = new ArrayList<>(Arrays.asList(-1,1,2,3,1));
+        List<Integer> nums2 = new ArrayList<>(Arrays.asList(-6,2,5,-2,-7,-1,3));
+        Title2824 title2824 = new Title2824();
+        System.out.println(title2824.countPairs(nums1, 2));
+        System.out.println(title2824.countPairs(nums2, -2));
+        System.out.println(title2824.countPairs2(nums1, 2));
+        System.out.println(title2824.countPairs2(nums2, -2));
     }
 
+    /**
+     * 先进行排序，然后使用相向双指针求解
+     */
     public int countPairs(List<Integer> nums, int target) {
+        nums.sort((o1, o2) -> (o1 - o2));
+        int ans = 0, n = nums.size(), left = 0, right = n - 1;
+        while (left < right) {
+            if(nums.get(left) + nums.get(right) < target) {
+                ans += right - left;
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return ans;
+    }
 
-        return 0;
+    /**
+     * 先把列表转数组，再进行排序，最后使用相向双指针求解
+     * 数组比列表效率更高
+     */
+    public int countPairs2(List<Integer> nums, int target) {
+        int ans = 0, n = nums.size(), left = 0, right = n - 1;
+        int[] na = new int[n];
+        for (int i = 0; i < n; i++) {
+            na[i] = nums.get(i);
+        }
+        Arrays.sort(na);
+        while (left < right) {
+            if(na[left] + na[right] < target) {
+                ans += right - left;
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return ans;
     }
 }
