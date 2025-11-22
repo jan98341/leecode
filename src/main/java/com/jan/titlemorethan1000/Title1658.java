@@ -27,11 +27,38 @@ package com.jan.titlemorethan1000;
  */
 public class Title1658 {
     public static void main(String[] args) {
+        int[] nums1 = {1,1,4,2,3};
+        int[] nums2 = {5,6,7,8,9};
+        int[] nums3 = {3,2,20,1,1,3};
 
+        Title1658 title1658 = new Title1658();
+        System.out.println(title1658.minOperations(nums1, 5));
+        System.out.println(title1658.minOperations(nums2, 4));
+        System.out.println(title1658.minOperations(nums3, 10));
     }
 
+    /**
+     * 转换成求最长连续子数组，子数组和 target = sum - x
+     * 利用单调性使用滑动窗口求最长连续子数组
+     */
     public int minOperations(int[] nums, int x) {
+        int total = 0, left = 0, sum = 0, ans = Integer.MIN_VALUE;
+        for(int num : nums) {
+            total += num;
+        }
 
-        return 0;
+        int target = total - x;
+        for(int right = 0; right < nums.length; right++) {
+            sum += nums[right];
+            while (sum > target) {
+                sum -= nums[left];
+                left++;
+            }
+
+            if(sum == target) {
+                ans = Math.max(ans, right - left + 1);
+            }
+        }
+        return ans == Integer.MIN_VALUE ? -1 : nums.length - ans;
     }
 }

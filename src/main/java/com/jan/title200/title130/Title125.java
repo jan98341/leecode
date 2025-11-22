@@ -31,11 +31,13 @@ public class Title125 {
         String s1 = "A man, a plan, a canal: Panama";
         String s2 = "race a car";
         String s3 = " ";
+        String s4 = "0P";
 
         Title125 title125 = new Title125();
         System.out.println(title125.isPalindrome(s1));
         System.out.println(title125.isPalindrome(s2));
         System.out.println(title125.isPalindrome(s3));
+        System.out.println(title125.isPalindrome(s4));
 
         System.out.println(title125.isPalindrome2(s1));
         System.out.println(title125.isPalindrome2(s2));
@@ -47,12 +49,12 @@ public class Title125 {
         int left = 0, right = chars.length - 1;
         while (left < right) {
             char l = getChar(chars[left]);
-            while(l == '0' && left < right) {
+            while(l == '~' && left < right) {
                 left++;
                 l = getChar(chars[left]);
             }
             char r = getChar(chars[right]);
-            while(r == '0' && left < right) {
+            while(r == '~' && left < right) {
                 right--;
                 r = getChar(chars[right]);
             }
@@ -72,7 +74,7 @@ public class Title125 {
         } else if(c >= 'A' && c <= 'Z') {
             return (char)(c + 32);
         } else {
-            return '0';
+            return '~';
         }
     }
 

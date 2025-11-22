@@ -23,10 +23,32 @@ package com.jan.titlemorethan2000;
  */
 public class Title2962 {
     public static void main(String[] args) {
-
+        int[] nums1 = {1,3,2,3,3};
+        int[] nums2 = {1,4,2,1};
+        Title2962 title2962 = new Title2962();
+        System.out.println(title2962.countSubarrays(nums1, 2));
+        System.out.println(title2962.countSubarrays(nums2, 3));
     }
 
     public long countSubarrays(int[] nums, int k) {
-        return 0;
+        int mx = 0, cnt = 0, left = 0;
+        for(int num : nums) {
+            mx = Math.max(mx, num);
+        }
+
+        long ans = 0;
+        for(int num : nums) {
+            if(num == mx) {
+                cnt++;
+            }
+            while(cnt == k) {
+                if(nums[left] == mx) {
+                    cnt--;
+                }
+                left++;
+            }
+            ans += left;
+        }
+        return ans;
     }
 }

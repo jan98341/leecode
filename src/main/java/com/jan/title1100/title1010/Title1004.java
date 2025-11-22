@@ -23,10 +23,46 @@ package com.jan.title1100.title1010;
  */
 public class Title1004 {
     public static void main(String[] args) {
+        int[] nums1 = {1,1,1,0,0,0,1,1,1,1,0};
+        int[] nums2 = {0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
 
+        Title1004 title1004 = new Title1004();
+        System.out.println(title1004.longestOnes(nums1, 2));
+        System.out.println(title1004.longestOnes(nums2, 3));
+
+        System.out.println(title1004.longestOnes2(nums1, 2));
+        System.out.println(title1004.longestOnes2(nums2, 3));
     }
 
     public int longestOnes(int[] nums, int k) {
-        return 0;
+        int ans = 0, left = 0, cnt = 0;
+        for(int right = 0; right < nums.length; right++) {
+            if(nums[right] == 0) {
+                cnt++;
+            }
+
+            if(cnt > k) {
+                while(nums[left] != 0) {
+                    left++;
+                }
+                left++;
+                cnt--;
+            }
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
+    }
+
+    public int longestOnes2(int[] nums, int k) {
+        int ans = 0, left = 0, cnt = 0;
+        for(int right = 0; right < nums.length; right++) {
+            cnt += 1 - nums[right];  // 0 变成 1，用来统计cnt
+            while(cnt > k) {
+                cnt -= 1 - nums[left];
+                left++;
+            }
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
     }
 }

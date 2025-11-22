@@ -32,11 +32,37 @@ package com.jan.titlemorethan2000;
  */
 public class Title2730 {
     public static void main(String[] args) {
+        String s1 = "52233";
+        String s2 = "5494";
+        String s3 = "1111111";
 
+        Title2730 title2730 = new Title2730();
+        System.out.println(title2730.longestSemiRepetitiveSubstring(s1));
+        System.out.println(title2730.longestSemiRepetitiveSubstring(s2));
+        System.out.println(title2730.longestSemiRepetitiveSubstring(s3));
     }
 
+    /**
+     * 移动右指针 right，并统计相邻相同的情况出现了多少次，记作 same。
+     * 如果 same>1，则不断移动左指针 left 直到 s[left]=s[left−1]，此时将一对相同的字符移到窗口之外。然后将 same 置为 1。
+     * 然后统计子串长度 right−left+1 的最大值。
+     */
     public int longestSemiRepetitiveSubstring(String s) {
-
-        return 0;
+        char[] c = s.toCharArray();
+        int n = c.length, ans = 0, left = 0, same = 0;
+        for (int right = 1; right < n; right++) {
+            if(c[right -1] == c[right]) {
+                same++;
+            }
+            if (same > 1) {
+                left++;
+                while (c[left] != c[left - 1]) {
+                    left++;
+                }
+                same = 1;
+            }
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
     }
 }

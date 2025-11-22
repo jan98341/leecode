@@ -35,11 +35,30 @@ package com.jan.titlemorethan2000;
  */
 public class Title2302 {
     public static void main(String[] args) {
+        int[] nums1 = {2,1,4,3,5};
+        int[] nums2 = {1,1,1};
 
+        Title2302 title2302 = new Title2302();
+        System.out.println(title2302.countSubarrays(nums1, 10));
+        System.out.println(title2302.countSubarrays(nums2, 5));
     }
 
+    /**
+     * 滑动窗口使用前提：
+     * 1、连续子数组/子串
+     * 2、有单调性。本题元素均为正数，所以子数组越长，分数越高；子数组越短，分数越低。这意味着只要某个子数组的分数小于 k，在该子数组内的更短的子数组，分数也小于 k。
+     */
     public long countSubarrays(int[] nums, long k) {
-
-        return 0;
+        int left = 0, sum = 0;
+        long ans = 0;
+        for (int right = 0; right < nums.length; right++) {
+            sum += nums[right];
+            while (sum * (right - left + 1) >= k) {
+                sum -= nums[left];
+                left++;
+            }
+            ans += right - left + 1;
+        }
+        return ans;
     }
 }
