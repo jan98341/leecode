@@ -34,11 +34,67 @@ import com.jan.share.TreeNode;
  */
 public class Title129 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(1);
+        TreeNode node121 = new TreeNode(2);
+        TreeNode node122 = new TreeNode(3);
+        root1.left = node121;
+        root1.right = node122;
 
+        TreeNode root2 = new TreeNode(4);
+        TreeNode node221 = new TreeNode(9);
+        TreeNode node222 = new TreeNode(0);
+        TreeNode node231 = new TreeNode(5);
+        TreeNode node232 = new TreeNode(1);
+        root2.left = node221;
+        root2.right = node222;
+        node221.left = node231;
+        node221.right = node232;
+
+        Title129 title129 = new Title129();
+        System.out.println(title129.sumNumbers(root1));
+        System.out.println(title129.sumNumbers(root2));
+
+        System.out.println(title129.sumNumbers2(root1));
+        System.out.println(title129.sumNumbers2(root2));
     }
 
+    /**
+     * dfs没有返回值
+     */
     public int sumNumbers(TreeNode root) {
+        ans = 0;
+        dfs(root, 0);
+        return ans;
+    }
 
-        return 0;
+    private int ans;
+    private void dfs(TreeNode node, int sum) {
+        if(node == null) {
+            return;
+        }
+
+        sum = sum * 10 + node.val;
+        if(node.left == null && node.right == null) {
+            ans += sum;
+        }
+
+        dfs(node.left, sum);
+        dfs(node.right, sum);
+    }
+
+    /**
+     * dfs没有返回值
+     */
+    public int sumNumbers2(TreeNode root) {
+        return dfs2(root, 0);
+    }
+
+    private int dfs2(TreeNode node, int sum) {
+        if(node == null) return 0;
+        sum = sum * 10 + node.val;
+        if(node.left == null && node.right == null) {
+            return sum;
+        }
+        return dfs2(node.left, sum) +dfs2(node.right, sum);
     }
 }

@@ -33,12 +33,59 @@ import com.jan.share.TreeNode;
  */
 public class Title112 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(5);
+        TreeNode node21 = new TreeNode(4);
+        TreeNode node22 = new TreeNode(8);
+        TreeNode node31 = new TreeNode(11);
+        TreeNode node32 = new TreeNode(13);
+        TreeNode node33 = new TreeNode(4);
+        TreeNode node41 = new TreeNode(7);
+        TreeNode node42 = new TreeNode(2);
+        TreeNode node43 = new TreeNode(1);
+        root1.left = node21;
+        root1.right = node22;
+        node21.left = node31;
+        node22.left = node32;
+        node22.right = node33;
+        node31.left = node41;
+        node31.right = node42;
+        node33.right = node43;
 
+        TreeNode root2 = new TreeNode(1);
+        TreeNode node221 = new TreeNode(2);
+        TreeNode node222 = new TreeNode(3);
+        root2.left = node221;
+        root2.right = node222;
 
+        TreeNode root3 = new TreeNode(1);
+
+        Title112 title112 = new Title112();
+        System.out.println(title112.hasPathSum(root1, 22));
+        System.out.println(title112.hasPathSum(root2, 5));
+        System.out.println(title112.hasPathSum(root3, 0));
+
+        System.out.println(title112.hasPathSum2(root1, 22));
+        System.out.println(title112.hasPathSum2(root2, 5));
+        System.out.println(title112.hasPathSum2(root3, 0));
     }
 
     public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null) return false;
+        targetSum -= root.val;
+        // 如果当前节点是叶子节点
+        if(root.left == null && root.right == null) {
+            return targetSum == 0;
+        }
+        return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);
+    }
 
-        return false;
+    public boolean hasPathSum2(TreeNode root, int targetSum) {
+        if (root == null) {
+            return false;
+        }
+        if (root.left == null && root.right == null) {
+            return targetSum == root.val;
+        }
+        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 }
