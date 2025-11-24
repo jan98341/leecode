@@ -1,5 +1,8 @@
 package com.jan.titlemorethan2000;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 2958. 最多 K 个重复元素的最长子数组
  * 给你一个整数数组 nums 和一个整数 k 。
@@ -45,12 +48,12 @@ public class Title2958 {
 
     public int maxSubarrayLength(int[] nums, int k) {
         int n = nums.length, ans = 0, left = 0;
-        int[] cnt = new int[11]; //  Map<Integer, Integer> cnt = new HashMap<>();
+        Map<Integer, Integer> cnt = new HashMap<>();
         for(int right = 0; right < n; right++) {
             int x = nums[right];
-            cnt[x]++; // cnt.merge(nums[right], 1, Integer::sum)
-            while(cnt[x] > k) {
-                cnt[nums[left]]--; // cnt.merge(nums[left], -1, Integer::sum);
+            cnt.merge(nums[right], 1, Integer::sum);
+            while(cnt.get(nums[right]) > k) {
+                cnt.merge(nums[left], -1, Integer::sum);
                 left++;
             }
             ans = Math.max(ans, right - left + 1);

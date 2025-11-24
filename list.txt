@@ -1,5 +1,3 @@
-
-
 69. x 的平方根 √
 300. 最长递增子序列 √
 583. 两个字符串的删除操作 √
@@ -52,15 +50,15 @@
 盛最多水的容器 接雨水【基础算法精讲 02】
 11. 盛最多水的容器 √ https://leetcode.cn/problems/container-with-most-water/solution/by-endlesscheng-f0xz/
 42. 接雨水 √ https://leetcode.cn/problems/trapping-rain-water/solution/zuo-liao-nbian-huan-bu-hui-yi-ge-shi-pin-ukwm/
-125. 验证回文串 -- https://leetcode.cn/problems/valid-palindrome/
-2105. 给植物浇水 -- II https://leetcode.cn/problems/watering-plants-ii/
+125. 验证回文串 √ https://leetcode.cn/problems/valid-palindrome/
+2105. 给植物浇水 √ II https://leetcode.cn/problems/watering-plants-ii/
 
 滑动窗口【基础算法精讲 03】
-209. 长度最小的子数组 -- https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/
-3. 无重复字符的最长子串 -- https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/
-713. 乘积小于 K 的子数组 -- https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/
-3090. 每个字符最多出现两次的最长子字符串 -- https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences/
-2958. 最多 K 个重复元素的最长子数组 -- https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency/
+209. 长度最小的子数组 √ https://leetcode.cn/problems/minimum-size-subarray-sum/solution/biao-ti-xia-biao-zong-suan-cuo-qing-kan-k81nh/
+3. 无重复字符的最长子串 √ https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-iaks/
+713. 乘积小于 K 的子数组 √ https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/
+3090. 每个字符最多出现两次的最长子字符串 √ https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences/
+2958. 最多 K 个重复元素的最长子数组 √ https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency/
 2730. 找到最长的半重复子字符串 -- https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/
 1004. 最大连续 1 的个数 -- III https://leetcode.cn/problems/max-consecutive-ones-iii/
 2962. 统计最大元素出现至少 K 次的子数组 -- https://leetcode.cn/problems/count-subarrays-where-max-element-appears-at-least-k-times/
@@ -122,6 +120,8 @@
 106. 从中序与后序遍历序列构造二叉树 https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 889. 根据前序和后序遍历构造二叉树 https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/
 1110. 删点成林 https://leetcode.cn/problems/delete-nodes-and-return-forest/
+94. 二叉树的中序遍历 --
+102. 二叉树的层序遍历 --
 
 二叉树的最近公共祖先【基础算法精讲 12】
 236. 二叉树的最近公共祖先 https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/solutions/2023872/fen-lei-tao-lun-luan-ru-ma-yi-ge-shi-pin-2r95/
