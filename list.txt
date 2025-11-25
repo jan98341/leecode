@@ -94,7 +94,7 @@
 112. 路径总和 -- https://leetcode.cn/problems/path-sum/
 129. 求根节点到叶节点数字之和 -- https://leetcode.cn/problems/sum-root-to-leaf-numbers/
 1448. 统计二叉树中好节点的数目 -- https://leetcode.cn/problems/count-good-nodes-in-binary-tree/
-987. 二叉树的垂序遍历 https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree/
+987. 二叉树的垂序遍历 -- https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree/
 
 二叉树 相同 对称 平衡 右视图 【基础算法精讲 10】
 965. 单值二叉树 https://leetcode.cn/problems/univalued-binary-tree/
