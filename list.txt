@@ -89,6 +89,7 @@
 154. 寻找旋转排序数组中的最小值 II https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/
 
 二叉树 递归 数学归纳法 栈 【基础算法精讲 09】
+104. 二叉树的最大深度 -- https://leetcode.cn/problems/maximum-depth-of-binary-tree/solution/kan-wan-zhe-ge-shi-pin-rang-ni-dui-di-gu-44uz/
 111. 二叉树的最小深度 -- https://leetcode.cn/problems/minimum-depth-of-binary-tree/
 404. 左叶子之和 -- https://leetcode.cn/problems/sum-of-left-leaves/
 112. 路径总和 -- https://leetcode.cn/problems/path-sum/
@@ -97,6 +98,10 @@
 987. 二叉树的垂序遍历 -- https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree/
 
 二叉树 相同 对称 平衡 右视图 【基础算法精讲 10】
+100. 相同的树 https://leetcode.cn/problems/same-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-empk/
+101. 对称二叉树 https://leetcode.cn/problems/symmetric-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-6dq5/
+110. 平衡二叉树 https://leetcode.cn/problems/balanced-binary-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-c3wj/
+199. 二叉树的右视图 https://leetcode.cn/problems/binary-tree-right-side-view/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-r1nc/
 965. 单值二叉树 https://leetcode.cn/problems/univalued-binary-tree/
 951. 翻转等价二叉树 https://leetcode.cn/problems/flip-equivalent-binary-trees/
 226. 翻转二叉树 https://leetcode.cn/problems/invert-binary-tree/
