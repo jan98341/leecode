@@ -32,11 +32,65 @@ import com.jan.share.TreeNode;
  */
 public class Title1448 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(3);
+        TreeNode node121 = new TreeNode(1);
+        TreeNode node122 = new TreeNode(4);
+        TreeNode node131 = new TreeNode(3);
+        TreeNode node132 = new TreeNode(1);
+        TreeNode node133 = new TreeNode(5);
+        root1.left = node121;
+        root1.right = node122;
+        node121.left = node131;
+        node122.left = node132;
+        node122.right = node133;
 
+        TreeNode root2 = new TreeNode(3);
+        TreeNode node221 = new TreeNode(3);
+        TreeNode node231 = new TreeNode(4);
+        TreeNode node232 = new TreeNode(2);
+        root2.left = node221;
+        node221.left = node231;
+        node221.right = node232;
+
+        TreeNode root3 = new TreeNode(1);
+
+        Title1448 title1448 = new Title1448();
+        System.out.println(title1448.goodNodes(root1));
+        System.out.println(title1448.goodNodes(root2));
+        System.out.println(title1448.goodNodes(root3));
+
+        System.out.println(title1448.goodNodes2(root1));
+        System.out.println(title1448.goodNodes2(root2));
+        System.out.println(title1448.goodNodes2(root3));
     }
 
     public int goodNodes(TreeNode root) {
+        ans = 0;
+        dfs(root, root.val);
+        return ans;
+    }
 
-        return 0;
+    private int ans;
+    private void dfs(TreeNode node, int maxValue) {
+        if (node == null) return;
+
+        if(node.val >= maxValue) {
+            ans++;
+            maxValue = node.val;
+        }
+        dfs(node.left, maxValue);
+        dfs(node.right, maxValue);
+    }
+
+    public int goodNodes2(TreeNode root) {
+        return dfs2(root, root.val);
+    }
+
+    private int dfs2(TreeNode node, int maxValue) {
+        if (node == null) return 0;
+        int left = dfs2(node.left, Math.max(maxValue, node.val));
+        int right = dfs2(node.right, Math.max(maxValue, node.val));
+        // 如果当前节点是好节点，即 mx <= root.val，那么返回 left+right+1，否则返回 left+right
+        return left + right + (node.val >= maxValue ? 1 : 0);
     }
 }

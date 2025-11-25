@@ -49,8 +49,8 @@ public class Title2730 {
      */
     public int longestSemiRepetitiveSubstring(String s) {
         char[] c = s.toCharArray();
-        int n = c.length, ans = 0, left = 0, same = 0;
-        for (int right = 1; right < n; right++) {
+        int ans = 1, left = 0, same = 0;
+        for (int right = 1; right < c.length; right++) {
             if(c[right -1] == c[right]) {
                 same++;
             }
