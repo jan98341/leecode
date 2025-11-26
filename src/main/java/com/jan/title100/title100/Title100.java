@@ -25,11 +25,31 @@ import com.jan.share.TreeNode;
  */
 public class Title100 {
     public static void main(String[] args) {
+        TreeNode p1 = new TreeNode(1);
+        TreeNode p121 = new TreeNode(2);
+        TreeNode p122 = new TreeNode(3);
+        p1.left = p121;
+        p1.right = p122;
+        TreeNode q1 = new TreeNode(1);
+        TreeNode q121 = new TreeNode(2);
+        TreeNode q122 = new TreeNode(3);
+        q1.left = q121;
+        q1.right = q122;
 
+        TreeNode p2 = new TreeNode(1);
+        TreeNode p221 = new TreeNode(2);
+        p2.left = p221;
+        TreeNode q2 = new TreeNode(1);
+        TreeNode q221 = new TreeNode(2);
+        q2.right = q221;
+
+        Title100 title100 = new Title100();
+        System.out.println(title100.isSameTree(p1, q1));
+        System.out.println(title100.isSameTree(p2, q2));
     }
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
-
-        return false;
+        if(p == null || q == null) return p == q;
+        return (p.val == q.val) && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 }

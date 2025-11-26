@@ -59,10 +59,10 @@
 713. 乘积小于 K 的子数组 √ https://leetcode.cn/problems/subarray-product-less-than-k/solution/xia-biao-zong-suan-cuo-qing-kan-zhe-by-e-jebq/
 3090. 每个字符最多出现两次的最长子字符串 √ https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences/
 2958. 最多 K 个重复元素的最长子数组 √ https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency/
-2730. 找到最长的半重复子字符串 -- https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/
-1004. 最大连续 1 的个数 -- III https://leetcode.cn/problems/max-consecutive-ones-iii/
-2962. 统计最大元素出现至少 K 次的子数组 -- https://leetcode.cn/problems/count-subarrays-where-max-element-appears-at-least-k-times/
-2302. 统计得分小于 K 的子数组数目 -- https://leetcode.cn/problems/count-subarrays-with-score-less-than-k/
+2730. 找到最长的半重复子字符串 √ https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/
+1004. 最大连续 1 的个数 √ III https://leetcode.cn/problems/max-consecutive-ones-iii/
+2962. 统计最大元素出现至少 K 次的子数组 √ https://leetcode.cn/problems/count-subarrays-where-max-element-appears-at-least-k-times/
+2302. 统计得分小于 K 的子数组数目 √ https://leetcode.cn/problems/count-subarrays-with-score-less-than-k/
 1658. 将 x 减到 0 的最小操作数 -- https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero/
 76. 最小覆盖子串 -- https://leetcode.cn/problems/minimum-window-substring/
 
@@ -98,11 +98,11 @@
 987. 二叉树的垂序遍历 -- https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree/
 
 二叉树 相同 对称 平衡 右视图 【基础算法精讲 10】
-100. 相同的树 https://leetcode.cn/problems/same-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-empk/
+100. 相同的树 -- https://leetcode.cn/problems/same-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-empk/
 101. 对称二叉树 https://leetcode.cn/problems/symmetric-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-6dq5/
 110. 平衡二叉树 https://leetcode.cn/problems/balanced-binary-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-c3wj/
 199. 二叉树的右视图 https://leetcode.cn/problems/binary-tree-right-side-view/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-r1nc/
-965. 单值二叉树 https://leetcode.cn/problems/univalued-binary-tree/
+965. 单值二叉树 -- https://leetcode.cn/problems/univalued-binary-tree/
 951. 翻转等价二叉树 https://leetcode.cn/problems/flip-equivalent-binary-trees/
 226. 翻转二叉树 https://leetcode.cn/problems/invert-binary-tree/
 617. 合并二叉树 https://leetcode.cn/problems/merge-two-binary-trees/
