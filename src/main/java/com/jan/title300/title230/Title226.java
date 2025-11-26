@@ -1,5 +1,6 @@
 package com.jan.title300.title230;
 
+import com.alibaba.fastjson.JSON;
 import com.jan.share.TreeNode;
 
 /**
@@ -24,11 +25,58 @@ import com.jan.share.TreeNode;
  */
 public class Title226 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(4);
+        TreeNode p121 = new TreeNode(2);
+        TreeNode p122 = new TreeNode(7);
+        TreeNode p131 = new TreeNode(1);
+        TreeNode p132 = new TreeNode(3);
+        TreeNode p133 = new TreeNode(6);
+        TreeNode p134 = new TreeNode(9);
+        root1.left = p121;
+        root1.right = p122;
+        p121.left = p131;
+        p121.right = p132;
+        p122.left = p133;
+        p122.right = p134;
 
+        Title226 title226 = new Title226();
+        TreeNode printNode = new TreeNode();
+        printNode.print(title226.invertTree(root1));
+        printNode.print(title226.invertTree2(root1));
+        printNode.print(title226.invertTree3(root1));
     }
 
     public TreeNode invertTree(TreeNode root) {
+        dfs(root);
+        return root;
+    }
 
-        return null;
+    private void dfs(TreeNode treeNode) {
+        if(treeNode == null) return;
+        TreeNode temp = new TreeNode();
+        temp = treeNode.left;
+        treeNode.left = treeNode.right;
+        treeNode.right = temp;
+        dfs(treeNode.left);
+        dfs(treeNode.right);
+    }
+
+    public TreeNode invertTree2(TreeNode root) {
+        if(root == null) return null;
+        TreeNode left = invertTree2(root.left);
+        TreeNode right = invertTree2(root.right);
+        root.left = right;
+        root.right = left;
+        return root;
+    }
+
+    public TreeNode invertTree3(TreeNode root) {
+        if(root == null) return null;
+        TreeNode temp = root.left;
+        root.left = root.right;     // 交换左右儿子
+        root.right = temp;
+        invertTree3(root.left);     // 翻转左子树
+        invertTree3(root.right);    // 翻转右子树
+        return root;
     }
 }

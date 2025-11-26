@@ -23,11 +23,44 @@ import com.jan.share.TreeNode;
  */
 public class Title110 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(3);
+        TreeNode p121 = new TreeNode(9);
+        TreeNode p122 = new TreeNode(20);
+        TreeNode p131 = new TreeNode(15);
+        TreeNode p132 = new TreeNode(7);
+        root1.left = p121;
+        root1.right = p122;
+        p122.left = p131;
+        p122.right = p132;
 
+        TreeNode root2 = new TreeNode(1);
+        TreeNode p221 = new TreeNode(2);
+        TreeNode p222 = new TreeNode(2);
+        TreeNode p231 = new TreeNode(3);
+        TreeNode p232 = new TreeNode(3);
+        TreeNode p241 = new TreeNode(4);
+        TreeNode p242 = new TreeNode(4);
+        root2.left = p221;
+        root2.right = p222;
+        p221.left = p231;
+        p221.right = p232;
+        p231.left = p241;
+        p231.right = p242;
+
+        Title110 title110 = new Title110();
+        System.out.println(title110.isBalanced(root1));
+        System.out.println(title110.isBalanced(root2));
     }
 
     public boolean isBalanced(TreeNode root) {
+        return getHeight(root) != -1;
+    }
 
-        return false;
+    private int getHeight(TreeNode node) {
+        if(node == null) return 0;
+        int leftHeight = getHeight(node.left);
+        int rightHeight = getHeight(node.right);
+        if(leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) return -1;
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 }
