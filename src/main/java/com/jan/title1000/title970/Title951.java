@@ -28,7 +28,42 @@ import com.jan.share.TreeNode;
  */
 public class Title951 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(1);
+        TreeNode p121 = new TreeNode(2);
+        TreeNode p122 = new TreeNode(3);
+        TreeNode p131 = new TreeNode(4);
+        TreeNode p132 = new TreeNode(5);
+        TreeNode p133 = new TreeNode(6);
+        TreeNode p141 = new TreeNode(7);
+        TreeNode p142 = new TreeNode(8);
+        root1.left = p121;
+        root1.right = p122;
+        p121.left = p131;
+        p121.right = p132;
+        p122.left = p133;
+        p132.left = p141;
+        p132.right = p142;
 
+        TreeNode root2 = new TreeNode(1);
+        TreeNode p221 = new TreeNode(3);
+        TreeNode p222 = new TreeNode(2);
+        TreeNode p231 = new TreeNode(6);
+        TreeNode p232 = new TreeNode(4);
+        TreeNode p233 = new TreeNode(5);
+        TreeNode p241 = new TreeNode(8);
+        TreeNode p242 = new TreeNode(7);
+        root2.left = p221;
+        root2.right = p222;
+        p221.right = p231;
+        p222.left = p232;
+        p222.right = p233;
+        p233.left = p241;
+        p233.right = p242;
+
+        Title951 title951 = new Title951();
+        System.out.println(title951.flipEquiv(root1, root2));
+        System.out.println(title951.flipEquiv(null, null));
+        System.out.println(title951.flipEquiv(null, new TreeNode(1)));
     }
 
     public boolean flipEquiv(TreeNode root1, TreeNode root2) {

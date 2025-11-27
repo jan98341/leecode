@@ -24,7 +24,26 @@ import com.jan.share.TreeNode;
  */
 public class Title617 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(1);
+        TreeNode p121 = new TreeNode(3);
+        TreeNode p122 = new TreeNode(2);
+        TreeNode p131 = new TreeNode(5);
+        root1.left = p121;
+        root1.right = p122;
+        p121.left = p131;
 
+        TreeNode root2 = new TreeNode(2);
+        TreeNode node221 = new TreeNode(1);
+        TreeNode node222 = new TreeNode(3);
+        TreeNode node231 = new TreeNode(4);
+        TreeNode node232 = new TreeNode(7);
+        root2.left = node221;
+        root2.right = node222;
+        node221.right = node231;
+        node222.right = node232;
+
+        Title617 title617 = new Title617();
+        root1.print(title617.mergeTrees(root1, root2));
     }
 
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {

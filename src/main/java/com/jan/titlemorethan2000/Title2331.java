@@ -5,7 +5,6 @@ import com.jan.share.TreeNode;
 /**
  * 2331. 计算布尔二叉树的值
  * 给你一棵 完整二叉树 的根，这棵树有以下特征：
- *
  * 叶子节点 要么值为 0 要么值为 1 ，其中 0 表示 False ，1 表示 True 。
  * 非叶子节点 要么值为 2 要么值为 3 ，其中 2 表示逻辑或 OR ，3 表示逻辑与 AND 。
  * 计算 一个节点的值方式如下：
@@ -38,11 +37,38 @@ import com.jan.share.TreeNode;
  */
 public class Title2331 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(2);
+        TreeNode p121 = new TreeNode(1);
+        TreeNode p122 = new TreeNode(3);
+        TreeNode p131 = new TreeNode(0);
+        TreeNode p132 = new TreeNode(1);
+        root1.left = p121;
+        root1.right = p122;
+        p122.left = p131;
+        p122.right = p132;
 
+        TreeNode root2 = new TreeNode(0);
+
+        Title2331 title2331 = new Title2331();
+        System.out.println(title2331.evaluateTree(root1));
+        System.out.println(title2331.evaluateTree(root2));
+
+        System.out.println(title2331.evaluateTree2(root1));
+        System.out.println(title2331.evaluateTree2(root2));
     }
 
     public boolean evaluateTree(TreeNode root) {
+        if(root == null) return true;
+        if(root.left == null && root.right == null) return root.val == 1;
+        boolean left = evaluateTree(root.left);
+        boolean right = evaluateTree(root.right);
+        return (root.val == 2) ? (left || right) : (left && right);
+    }
 
-        return false;
+    public boolean evaluateTree2(TreeNode root) {
+        if(root.left == null) return root.val == 1;
+        boolean left = evaluateTree(root.left);
+        boolean right = evaluateTree(root.right);
+        return (root.val == 2) ? (left || right) : (left && right);
     }
 }
