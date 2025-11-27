@@ -53,8 +53,7 @@ public class Title226 {
 
     private void dfs(TreeNode treeNode) {
         if(treeNode == null) return;
-        TreeNode temp = new TreeNode();
-        temp = treeNode.left;
+        TreeNode temp = treeNode.left;
         treeNode.left = treeNode.right;
         treeNode.right = temp;
         dfs(treeNode.left);

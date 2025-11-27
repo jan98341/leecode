@@ -42,13 +42,13 @@ public class Title1658 {
      * 利用单调性使用滑动窗口求最长连续子数组
      */
     public int minOperations(int[] nums, int x) {
-        int total = 0, left = 0, sum = 0, ans = Integer.MIN_VALUE;
+        int target = -x, left = 0, sum = 0, ans = -1, n = nums.length;
         for(int num : nums) {
-            total += num;
+            target += num;
         }
+        if(target < 0) return -1;
 
-        int target = total - x;
-        for(int right = 0; right < nums.length; right++) {
+        for(int right = 0; right < n; right++) {
             sum += nums[right];
             while (sum > target) {
                 sum -= nums[left];
@@ -59,6 +59,6 @@ public class Title1658 {
                 ans = Math.max(ans, right - left + 1);
             }
         }
-        return ans == Integer.MIN_VALUE ? -1 : nums.length - ans;
+        return ans < 0 ? -1 : n - ans;
     }
 }

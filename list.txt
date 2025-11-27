@@ -63,8 +63,8 @@
 1004. 最大连续 1 的个数 √ III https://leetcode.cn/problems/max-consecutive-ones-iii/
 2962. 统计最大元素出现至少 K 次的子数组 √ https://leetcode.cn/problems/count-subarrays-where-max-element-appears-at-least-k-times/
 2302. 统计得分小于 K 的子数组数目 √ https://leetcode.cn/problems/count-subarrays-with-score-less-than-k/
-1658. 将 x 减到 0 的最小操作数 -- https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero/
-76. 最小覆盖子串 -- https://leetcode.cn/problems/minimum-window-substring/
+1658. 将 x 减到 0 的最小操作数 √ https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero/
+76. 最小覆盖子串 √ https://leetcode.cn/problems/minimum-window-substring/
 
 二分查找 红蓝染色法【基础算法精讲 04】
 34. 在排序数组中查找元素的第一个和最后一个位置 https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/solution/er-fen-cha-zhao-zong-shi-xie-bu-dui-yi-g-t9l9/
@@ -89,7 +89,7 @@
 154. 寻找旋转排序数组中的最小值 II https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/
 
 二叉树 递归 数学归纳法 栈 【基础算法精讲 09】
-104. 二叉树的最大深度 -- https://leetcode.cn/problems/maximum-depth-of-binary-tree/solution/kan-wan-zhe-ge-shi-pin-rang-ni-dui-di-gu-44uz/
+104. 二叉树的最大深度 √ https://leetcode.cn/problems/maximum-depth-of-binary-tree/solution/kan-wan-zhe-ge-shi-pin-rang-ni-dui-di-gu-44uz/
 111. 二叉树的最小深度 -- https://leetcode.cn/problems/minimum-depth-of-binary-tree/
 404. 左叶子之和 -- https://leetcode.cn/problems/sum-of-left-leaves/
 112. 路径总和 -- https://leetcode.cn/problems/path-sum/
@@ -103,9 +103,9 @@
 110. 平衡二叉树 -- https://leetcode.cn/problems/balanced-binary-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-c3wj/
 199. 二叉树的右视图 -- https://leetcode.cn/problems/binary-tree-right-side-view/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-r1nc/
 965. 单值二叉树 -- https://leetcode.cn/problems/univalued-binary-tree/
-951. 翻转等价二叉树 https://leetcode.cn/problems/flip-equivalent-binary-trees/
+951. 翻转等价二叉树 -- https://leetcode.cn/problems/flip-equivalent-binary-trees/
 226. 翻转二叉树 -- https://leetcode.cn/problems/invert-binary-tree/
-617. 合并二叉树 https://leetcode.cn/problems/merge-two-binary-trees/
+617. 合并二叉树 √ https://leetcode.cn/problems/merge-two-binary-trees/
 2331. 计算布尔二叉树的值 https://leetcode.cn/problems/evaluate-boolean-binary-tree/
 508. 出现次数最多的子树元素和 https://leetcode.cn/problems/most-frequent-subtree-sum/
 1026. 节点与其祖先之间的最大差值 https://leetcode.cn/problems/maximum-difference-between-node-and-ancestor/
