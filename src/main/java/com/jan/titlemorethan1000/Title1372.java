@@ -32,11 +32,43 @@ import com.jan.share.TreeNode;
  */
 public class Title1372 {
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(1);
+        TreeNode p121 = new TreeNode(1);
+        TreeNode p131 = new TreeNode(1);
+        TreeNode p132 = new TreeNode(1);
+        TreeNode p141 = new TreeNode(1);
+        TreeNode p142 = new TreeNode(1);
+        TreeNode p151 = new TreeNode(1);
+        TreeNode p161 = new TreeNode(1);
+        root1.right = p121;
+        p121.left = p131;
+        p121.right = p132;
+        p132.left = p141;
+        p132.right = p142;
+        p141.right = p151;
+        p151.right = p161;
 
+        Title1372 title1372 = new Title1372();
+        System.out.println(title1372.longestZigZag(root1));
     }
 
     public int longestZigZag(TreeNode root) {
+        dfs(root, 1,0);
+        dfs(root, 2,0);
+        return ans;
+    }
 
-        return 0;
+    private int ans;
+    private void dfs(TreeNode node, int preDirect, int cnt) {
+        ans = Math.max(ans, cnt);
+        // preDirect=1是父节点左前进，preDirect=2是父节点右前进
+        if(preDirect == 1) {
+            if(node.left != null) dfs(node.left, 1, 1);
+            if(node.right != null) dfs(node.right, 2, cnt + 1);
+        }
+        if(preDirect == 2) {
+            if(node.left != null) dfs(node.left, 1, cnt + 1);
+            if(node.right != null) dfs(node.right, 2, 1);
+        }
     }
 }
